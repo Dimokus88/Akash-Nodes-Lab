@@ -27,7 +27,7 @@ services:
       - "bash"
       - "-c"
     args:
-      - 'curl -s https://raw.githubusercontent.com/Dimokus88/EmpowerChain/main/main.sh | bash '
+      - 'curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/EmpowerChain/main.sh | bash '
     expose:
       - port: 80
         as: 80
