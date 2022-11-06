@@ -1,7 +1,7 @@
 <div align="center">
   
 ![pba](https://user-images.githubusercontent.com/23629420/163564929-166f6a01-a6e2-4412-a4e9-40e54c821f05.png)
-# Cloudmos - custom user interface, overview and guide.
+# Cloudmos(Akashlytics) - custom user interface, overview and guide.
 
   </div>
   
@@ -16,7 +16,7 @@ Our news channels and technical support:
 | [Discord Akash](https://discord.gg/WR56y8Wt) | [Telegram Akash EN](https://t.me/AkashNW) | [TwitterAkash](https://twitter.com/akashnet_) | 
 |:--:|:--:|:--:|
 
-Before you begin, ***[download and install](https://cloudmos.io/cloud-deploy) the Cloudmos*** software on your work computer.
+Before you begin, ***[download and install](https://cloudmos.io/cloud-deploy) the Cloudmos(Akashlytics)*** software on your work computer.
   
 </div>
 
@@ -27,7 +27,7 @@ ___
 2. [Open Deployment](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#test-deploy).
 3. [Deployment window content.](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#deployment-window-content)
 4. [Close Deployment](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#close-deployment)
-5. [Overview Cloudmos](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#overview-of-akashlytics-functionality)
+5. [Overview Cloudmos(Akashlytics)](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#overview-of-akashlytics-functionality)
 
 ___
 
