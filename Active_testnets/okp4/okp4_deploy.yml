@@ -13,7 +13,7 @@ services:
       - "MONIKER=Akash" # Node name. Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/okp4/okp4d.git"
-      - "SNAP_RPC=rpc.okp.ppnv.space:6657"  
+      - "SNAP_RPC=https://okp4-testnet-rpc.polkachu.com:443"  
     command:
       - "bash"
       - "-c"
