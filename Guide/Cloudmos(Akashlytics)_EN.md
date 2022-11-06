@@ -69,7 +69,7 @@ The certificate has been created, you can see it in the upper right corner of th
 
 Preparation is complete, now create a test deploy.
 
-[Return](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#in-this-guide)
+[Return](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#in-this-guide)
   
 ___
 
@@ -116,7 +116,7 @@ Here you can find information about your provider, the cost of renting, as well 
 
 Excellent! Looks like you deployed the game to ***Akash Network***! But do you need something more than a game? Then go to the functional description section ***Cloudmos*** =)
   
-[Return](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#in-this-guide)
+[Return](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#in-this-guide)
   
 ___  
   
@@ -150,7 +150,7 @@ The ```RAW DATA``` tab contains ```JSON``` information from the ```AKASH``` bloc
   
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/180014764-02b11971-e727-4156-8eb6-5e1900f2f1f1.png" width=50% </p>
 
-[Return](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#in-this-guide)
+[Return](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#in-this-guide)
 
 ___
   
@@ -169,7 +169,7 @@ After the deployment is closed, the balance of ***AKT*** will be returned to you
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/180015965-c3044adc-4352-428c-9d1e-cec2f3e38ae9.png" width=60% </p>
 
 
-[Return](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#in-this-guide)
+[Return](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#in-this-guide)
 
 ___
 
@@ -196,6 +196,6 @@ ___
    
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/180031581-545f3439-702d-45e2-8d53-3d4f97d845ce.png" width=60% </p>
   
-[Return](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#in-this-guide)
+[Return](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#in-this-guide)
 
 ___
