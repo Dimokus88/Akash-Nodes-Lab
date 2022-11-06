@@ -75,7 +75,7 @@ ___
 
 ## Test deploy.
 
-***Cloudmos*** has ready-made ***manifest files (deploy.yml)***, they are in the ```Templates``` tab, check out the offer of ready-made solutions:
+***Cloudmos(Akashlytics)*** has ready-made ***manifest files (deploy.yml)***, they are in the ```Templates``` tab, check out the offer of ready-made solutions:
   
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/179993135-a0b5f5d1-8236-41f1-886b-8bfe664c8358.png" width=60% </p>
 
