@@ -16,7 +16,7 @@ Our news channels and technical support:
 | [Discord Akash](https://discord.gg/WR56y8Wt) | [Telegram Akash EN](https://t.me/AkashNW) | [TwitterAkash](https://twitter.com/akashnet_) | 
 |:--:|:--:|:--:|
 
-Before you begin, ***[download and install](https://akashlytics.com/deploy) the Cloudmos*** software on your work computer.
+Before you begin, ***[download and install](https://cloudmos.io/cloud-deploy) the Cloudmos*** software on your work computer.
   
 </div>
 
