@@ -23,11 +23,11 @@ ___
 ___
 
 #### В этой статье:
-1. [Создание аккаунта и подготовка к кработе](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0-%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5).
-2. [Открыть развертывание](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5).
-3. [Содержимое окна разветывания](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D0%BE%D0%BA%D0%BD%D0%B0-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
-4. [Закрыть развертывание](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D1%82%D1%8C-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)
-5. [Обзор Cloudmos(Akashlytics)](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D0%BE%D0%B1%D0%B7%D0%BE%D1%80-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%B0-akashlytics)
+1. [Создание аккаунта и подготовка к кработе](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0-%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5).
+2. [Создать развертывание](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5).
+3. [Содержимое окна разветывания](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D0%BE%D0%BA%D0%BD%D0%B0-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
+4. [Закрыть развертывание](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D1%82%D1%8C-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)
+5. [Обзор Cloudmos(Akashlytics)](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D1%82%D1%8C-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 Подготовка завершена, теперь сделаем тестовое разветывание.
 
-[Вернуться к содержанию.](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
+[Вернуться к содержанию.](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
   
 ___
 
@@ -117,7 +117,7 @@ ___
 
 Отлично! Похоже, Вы развернули игру в Akash Network! Но Вам же нужно нечто большее, чем игра? Тогда перейдите к разделу описания функционала ***Cloudmos(Akashlytics)*** =)
   
-[Вернуться к содержанию.](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
+[Вернуться к содержанию.](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
   
 ___  
   
@@ -151,7 +151,7 @@ ___
   
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/180014764-02b11971-e727-4156-8eb6-5e1900f2f1f1.png" width=50% </p>
 
-[Вернуться к содержанию.](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
+[Вернуться к содержанию.](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
 
 ___
   
@@ -170,7 +170,7 @@ ___
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/180015965-c3044adc-4352-428c-9d1e-cec2f3e38ae9.png" width=60% </p>
 
 
-[Вернуться к содержанию.](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
+[Вернуться к содержанию.](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
 
 ___
 
@@ -197,6 +197,6 @@ ___
    
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/180031581-545f3439-702d-45e2-8d53-3d4f97d845ce.png" width=60% </p>
   
-[Вернуться к содержанию.](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
+[Вернуться к содержанию.](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md#%D0%B2-%D1%8D%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5)
 
 ___
