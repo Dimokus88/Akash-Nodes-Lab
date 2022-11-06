@@ -20,7 +20,7 @@ Before you start - subscribe to our news channels:
  
 <div align="center">
   
-[English version](https://github.com/Dimokus88/Crowd_Control/tree/main#english-version) | [Русская версия](https://github.com/Dimokus88/Crowd_Control/tree/main#%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F) 
+[English version](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Deploy_node_guide.md#english-version) | [Русская версия](https://github.com/Dimokus88/Crowd_Control/tree/main#%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F) 
  
 </div>
 
