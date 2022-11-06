@@ -23,11 +23,11 @@ Before you begin, ***[download and install](https://cloudmos.io/cloud-deploy) th
 ___
 
 #### In this guide:
-1. [Create an account and prepare for work](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#create-an-account-and-prepare-for-work).
-2. [Open Deployment](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#test-deploy).
-3. [Deployment window content.](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#deployment-window-content)
-4. [Close Deployment](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#close-deployment)
-5. [Overview Cloudmos(Akashlytics)](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md#overview-of-akashlytics-functionality)
+1. [Create an account and prepare for work](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#create-an-account-and-prepare-for-work).
+2. [Open Deployment](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#test-deploy).
+3. [Deployment window content.](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#deployment-window-content)
+4. [Close Deployment](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#close-deployment)
+5. [Overview Cloudmos(Akashlytics)](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md#overview-of-cloudmos-functionality)
 
 ___
 
