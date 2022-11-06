@@ -29,7 +29,7 @@ ___
 # English version
 ### Deployment of the node.
 
-Select project and deploy [deploy.yml](https://github.com/Dimokus88/Akash-Nodes-Lab/tree/main/Active_testnets) file node with **Cloudmos (Akashlytics)** ( [use instructions here](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md) ) by setting the values ​​in the corresponding `deploy.yml` variables:
+Select project and deploy [deploy.yml](https://github.com/Dimokus88/Akash-Nodes-Lab/tree/main/Active_testnets) file node with **Cloudmos (Akashlytics)** ( [use instructions here](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_EN.md) ) by setting the values ​​in the corresponding `deploy.yml` variables:
 - **MY_ROOT_PASSWORD** - your password for the `root` user.
 - **MONIKER**-node name.
 - **LINK_KEY**-link to direct download of `priv_validator_key.json`* file.
@@ -96,7 +96,7 @@ ___
 # Русская версия
 ### Развертка ноды:
 
-Выбирите проект и разверните файл [deploy.yml](https://github.com/Dimokus88/Akash-Nodes-Lab/tree/main/Active_testnets) ноды с помощью **Cloudmos (Akashlytics)**  ([инструкция по использованию здесь](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md)) установив значения в соответствующих переменных  `deploy.yml`: 
+Выбирите проект и разверните файл [deploy.yml](https://github.com/Dimokus88/Akash-Nodes-Lab/tree/main/Active_testnets) ноды с помощью **Cloudmos (Akashlytics)**  ([инструкция по использованию здесь](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Cloudmos(Akashlytics)_RU.md)) установив значения в соответствующих переменных  `deploy.yml`: 
 - **MY_ROOT_PASSWORD**-свой пароль для `root` пользователя
 - **MONIKER**-имя ноды  
 - **LINK_KEY**-ссылку на прямое скачивание файла `priv_validator_key.json`* 
