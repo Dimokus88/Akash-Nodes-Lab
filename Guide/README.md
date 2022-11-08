@@ -86,7 +86,7 @@ Collect rewards:
 ```
 $BINARY tx distribution withdraw-rewards $valoper --from $address --fees 500$DENOM --commission --chain-id $CHAIN --home /root/$BINARY/ -y
 ```
-Other commands for managing a node [can be found here](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD).
+Other commands for managing a node [can be found here](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Command_Cosmos_SDK.md).
 
 [Back to top](https://github.com/Dimokus88/Crowd_Control/blob/main/README.md#Crowd_Control-validator-node-on-akash-network)
 
@@ -153,7 +153,7 @@ $BINARY tx staking delegate $valoper <amount>$DENOM --from $address --chain-id $
 ```
 $BINARY tx distribution withdraw-rewards $valoper --from $address --fees 500$DENOM --commission --chain-id $CHAIN --home /root/$BINARY/ -y
 ```
-Другие команды по управлению нодой [можете найти здесь](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD).
+Другие команды по управлению нодой [можете найти здесь](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/Command_Cosmos_SDK.md).
 
 [К началу](https://github.com/Dimokus88/Crowd_Control/blob/main/README.md#Crowd_Control-validator-node-on-akash-network)
 
