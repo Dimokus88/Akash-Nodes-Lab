@@ -10,6 +10,8 @@
  3. [Voting commands | Команды голосования](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD#voting-commands)
  4. [Network settings commands | Команды настроек сети](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD#network-settings-commands)
  
+___
+
 ##### Account (wallet) commands
  
 ##### Команды аккаунта (кошелька)
@@ -45,6 +47,8 @@ $BINARY tx bank send <ADDRESS_FROM> <ADDRESS_TO> 1000000$DENOM --fees 500$DENOM 
 ```
 
 [UP | Наверх](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD#commands-for-the-command-line-of-cosmos-sdk-ecosystem-projects) .
+
+___
 
 ##### Validator Commands
 ##### Команды валидатора
@@ -85,6 +89,8 @@ $BINARY tx staking delegate <valoper_address> 1000000$DENOM --from <ADDRESS> --f
 
 [UP | Наверх](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD#commands-for-the-command-line-of-cosmos-sdk-ecosystem-projects) .
   
+___
+
 ##### Voting commands
 ##### Команды голосования
   
@@ -121,6 +127,8 @@ $BINARY tx gov submit-proposal --title="Randomly reward" --description="Reward 1
 [UP | Наверх](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD#commands-for-the-command-line-of-cosmos-sdk-ecosystem-projects) .
   
   
+___
+
 ##### Network settings commands
 
 ##### Команды настроек сети
@@ -152,3 +160,5 @@ curl localhost:26657/status
 ```
 
 [UP | Наверх](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD#commands-for-the-command-line-of-cosmos-sdk-ecosystem-projects) .
+
+___
