@@ -12,9 +12,9 @@
  
 ___
 
-##### Account (wallet) commands
+#### Account (wallet) commands
  
-##### Команды аккаунта (кошелька)
+#### Команды аккаунта (кошелька)
 
 Create wallet | Cоздать кошелек
 
@@ -50,8 +50,8 @@ $BINARY tx bank send <ADDRESS_FROM> <ADDRESS_TO> 1000000$DENOM --fees 500$DENOM 
 
 ___
 
-##### Validator Commands
-##### Команды валидатора
+#### Validator Commands
+#### Команды валидатора
 
 Create a validator | Создать валидатора
 
@@ -91,8 +91,8 @@ $BINARY tx staking delegate <valoper_address> 1000000$DENOM --from <ADDRESS> --f
   
 ___
 
-##### Voting commands
-##### Команды голосования
+#### Voting commands
+#### Команды голосования
   
 Proposal list | Список предложений
 
@@ -129,9 +129,9 @@ $BINARY tx gov submit-proposal --title="Randomly reward" --description="Reward 1
   
 ___
 
-##### Network settings commands
+#### Network settings commands
 
-##### Команды настроек сети
+#### Команды настроек сети
   
 Network settings | Параметры сети
 
