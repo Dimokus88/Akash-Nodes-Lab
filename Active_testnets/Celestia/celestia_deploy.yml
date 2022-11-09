@@ -27,7 +27,7 @@ services:
       - "bash"
       - "-c"
     args:
-      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/Celestia/main/main.sh | bash '
+      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Celestia/main.sh | bash '
     expose:
       - port: 80
         as: 80
