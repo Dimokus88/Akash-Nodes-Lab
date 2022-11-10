@@ -2,6 +2,8 @@
 # By Dimokus (https://t.me/Dimokus)
 runsvdir -P /etc/service &
 cp /usr/lib/go-1.18/bin/go /usr/bin/
+curl https://get.gitopia.com | bash
+mv /tmp/tmpinstalldir/git-remote-gitopia /usr/local/bin/
 # ++++++++++++ Установка удаленного доступа ++++++++++++++
 echo 'export MY_ROOT_PASSWORD='${MY_ROOT_PASSWORD} >> /root/.bashrc
 apt -y install tmate
@@ -82,28 +84,19 @@ $BINARY config chain-id $CHAIN
 $BINARY config keyring-backend os
 #====================================================
 #===========ДОБАВЛЕНИЕ GENESIS.JSON===============
-if [[ -n ${SNAP_RPC} ]]
-then 
-	rm /root/$BINARY/config/genesis.json
-	curl -s "$SNAP_RPC"/genesis | jq .result.genesis >> /root/$BINARY/config/genesis.json
-	DENOM=`curl -s "$SNAP_RPC"/genesis | grep denom -m 1 | tr -d \"\, | sed "s/denom://" | tr -d \ `
-	echo 'export DENOM='${DENOM} >> /root/.bashrc
-fi
-if [[ -n ${GENESIS} ]]
-then
-	wget -O $HOME/$BINARY/config/genesis.json $GENESIS
-	DENOM=`cat $HOME/$BINARY/config/genesis.json | grep denom -m 1 | tr -d \"\, | sed "s/denom://" | tr -d \ `
-	echo 'export DENOM='${DENOM} >> /root/.bashrc
-fi
+apt install gunzip -y
+wget https://server.gitopia.com/raw/gitopia/testnets/master/gitopia-janus-testnet-2/genesis.json.gz
+gunzip genesis.json.gz
+mv genesis.json $HOME/.gitopia/config/genesis.json
+DENOM=utlore
+echo 'export DENOM='${DENOM} >> /root/.bashrc
 echo $DENOM
 sleep 5
 #=================================================
 
 
 #-----ВНОСИМ ИЗМЕНЕНИЯ В CONFIG.TOML , APP.TOML.-----------
-
-PEER="994c9398e55947b2f1f45f33fbdbffcbcad655db@okp4-testnet.nodejumper.io:29656,9d53d896fe92947f8955356191ec0d8c48ce5c98@143.198.179.16:26656,4a46d3ebb46d154c2e9a80f902de331564e12ecb@49.12.216.13:60756,614bbd8582094dd40655ebf74feac81fd0eab530@95.216.252.32:26656,bf6655b16b995a5ebc9bac48411f89d6b832d252@116.202.21.210:26656,94ae99b5efbbcfc26b70122c2d79f82588c14762@109.107.191.202:26656,e4d902d1b7c2c21c1a015352f7477a91c31e26c3@128.199.159.202:36656,a5f66d43453252bb51e35025fcf697f337ee0a3b@88.198.34.226:10096,5f27f3b5c813cb79902759d4ab1308b7fa28e05d@195.2.92.172:26656,ada4e7531515ac292e02d67c2780beb6a2e518e3@62.113.113.65:26656,aff7c6f4a4d2081fe7bab2d7165b585df51cbb3e@94.103.81.202:26656,5ce331c27ba867e11f56b933a51ae67289debfa2@23.88.10.3:26656,884f2ac01e37b97e58deb06a52638b96d64dc9ea@45.85.250.65:26656,0795566d7dae3e72b94bfffe91a9389846e16170@91.196.164.212:26656,53f3e3abee5be9aef0de9adc663c94ae62c911df@135.181.158.205:26656,ba1ad28ac74455335b745f38a90f26b08cad3d47@161.35.162.77:26656,d447c0160314b801ced8252829a00a27bfb5242f@193.33.194.153:26656,0ace47c9e9037ef34e26bfaa6c1d24b791499771@46.101.43.11:26656,579f664e68cd95b9be97426563ca2b79b63f9cf0@212.23.222.93:36656,6fb047e647333b3efe9e536d1825f52b571a6cf4@107.155.91.166:29656,8c1fed645d89306b0df5343743e902b292111d40@62.113.117.151:26656,81e6ecb1a1aa4ffba826b82ae287b169e7fff701@4.227.188.54:26656,e90452c94bce24a2e5c80d3fcaf8e10194414d50@185.188.249.179:26656,02855dcad19516b59ab8d495f0f8bc8a931c5a3d@195.2.74.35:26656"
-
+PEER="994c9398e55947b2f1f45f33fbdbffcbcad655db@okp4-testnet.nodejumper.io:29656,9d53d896fe92947f8955356191ec0d8c48ce5c98@143.198.179.16:26656,4a46d3ebb46d154c2e9a80f902de331564e12ecb@49.12.216.13:60756,614bbd8582094dd40655ebf74feac81fd0eab530@95.216.252.32:26656,bf6655b16b995a5ebc9bac48411f89d6b832d252@116.202.21.210:26656,94ae99b5efbbcfc26b70122c2d79f82588c14762@109.107.191.202:26656,e4d902d1b7c2c21c1a015352f7477a91c31e26c3@128.199.159.202:36656,a5f66d43453252bb51e35025fcf697f337ee0a3b@88.198.34.226:10096,5f27f3b5c813cb79902759d4ab1308b7fa28e05d@195.2.92.172:26656,ada4e7531515ac292e02d67c2780beb6a2e518e3@62.113.113.65:26656,aff7c6f4a4d2081fe7bab2d7165b585df51cbb3e@94.103.81.202:26656,5ce331c27ba867e11f56b933a51ae67289debfa2@23.88.10.3:26656,884f2ac01e37b97e58deb06a52638b96d64dc9ea@45.85.250.65:26656,0795566d7dae3e72b94bfffe91a9389846e16170@91.196.164.212:26656,53f3e3abee5be9aef0de9adc663c94ae62c911df@135.181.158.205:26656,ba1ad28ac74455335b745f38a90f26b08cad3d47@161.35.162.77:26656,d447c0160314b801ced8252829a00a27bfb5242f@193.33.194.153:26656,0ace47c9e9037ef34e26bfaa6c1d24b791499771@46.101.43.11:26656,579f664e68cd95b9be97426563ca2b79b63f9cf0@212.23.222.93:36656,6fb047e647333b3efe9e536d1825f52b571a6cf4@107.155.91.166:29656,8c1fed645d89306b0df5343743e902b292111d40@62.113.117.151:26656,81e6ecb1a1aa4ffba826b82ae287b169e7fff701@4.227.188.54:26656,e90452c94bce24a2e5c80d3fcaf8e10194414d50@185.188.249.179:26656,912f0a4c513b1aa9abb1f5653c4f6c9c6988700d@135.181.222.106:36656,9340b9190b4189654a58adffbc4428815c5542c8@172.104.248.165:26656,b193d733c1166fde4d5e1b2c32056331657f250a@89.163.221.231:46656,c98319889d2b961edd971c09a95672942378951e@5.252.23.206:26656,9b87a1b330dc29c0e99a57f56b482f549ca4e312@45.159.249.139:26656,04e3a6342f2c4fba8cc6b0de1a26c4dbcc1cc2e6@161.97.162.6:26656,245a5ac3deed7bb70b4ed7fbf6997fbd08e89d94@192.145.37.151:36656,12a395f190cb0b3752e5f3d079bef8080da9d22f@74.208.118.114:36656,02037773a328f6246bfbe436624d5582ad83df22@190.102.106.50:29656,c4ef36ad14700ed5d53fbbf2c94189266afea57a@20.203.98.156:36656,362812bd8dbdd9f338f52785705d348f3cfb50fb@23.251.135.170:26656,6238fe1b28838ca0b3878dcabd72556b411918e8@185.209.28.231:26656,0f2465585fc6c31f49208e9ddb6480c655ccf07d@144.91.100.18:36656,3164a6691205ec7f14f318479a27785615dd1e57@62.113.113.147:26656,a9225a5c513bdc4a2421d0ca4b03b84c9e76ebe5@38.242.245.157:26656"
 echo $PEER
 echo $SEED
 sleep 5
@@ -126,11 +119,15 @@ sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interva
 apt install lz4 -y
 cp $HOME/okp4d/data/priv_validator_state.json $HOME/okp4d/priv_validator_state.json.backup
 okp4d tendermint unsafe-reset-all --home $HOME/okp4d --keep-addr-book
+
 rm -rf $HOME/okp4d/data 
 rm -rf $HOME/okp4d/wasm
+
 SNAP_NAME=$(curl -s https://snapshots2-testnet.nodejumper.io/okp4-testnet/ | egrep -o ">okp4-nemeton.*\.tar.lz4" | tr -d ">")
+
 curl https://snapshots2-testnet.nodejumper.io/okp4-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/okp4d
 mv $HOME/okp4d/priv_validator_state.json.backup $HOME/okp4d/data/priv_validator_state.json
+
 #================================================
 wget -O /tmp/priv_validator_key.json ${LINK_KEY}
 file=/tmp/priv_validator_key.json
