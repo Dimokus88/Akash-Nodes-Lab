@@ -4,6 +4,7 @@ sv stop $BINARY
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" /root/$BINARY/config/config.toml
 apt install lz4 -y
 cp $HOME/okp4d/data/priv_validator_state.json $HOME/okp4d/priv_validator_state.json.backup
+cp $HOME/okp4d/data/priv_validator_key.json $HOME/okp4d/priv_validator_key.json.backup
 okp4d tendermint unsafe-reset-all --home $HOME/okp4d --keep-addr-book
 
 rm -rf $HOME/okp4d/data 
@@ -17,6 +18,7 @@ echo = Expect the snapshot download up to 2 hours. =
 echo ===============================================
 curl https://snapshots2-testnet.nodejumper.io/okp4-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/okp4d
 mv $HOME/okp4d/priv_validator_state.json.backup $HOME/okp4d/data/priv_validator_state.json
+mv $HOME/okp4d/priv_validator_key.json.backup $HOME/okp4d/data/priv_validator_key.json
 echo =======================
 echo == Снепшот загружен! ==
 echo =======================
