@@ -14,7 +14,11 @@ services:
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/okp4/okp4d.git"
       - "SNAP_RPC=http://rpc.okp.ppnv.space:6657"  
+      - "PEER=994c9398e55947b2f1f45f33fbdbffcbcad655db@okp4-testnet.nodejumper.io:29656,9d53d896fe92947f8955356191ec0d8c48ce5c98@143.198.179.16:26656,4a46d3ebb46d154c2e9a80f902de331564e12ecb@49.12.216.13:60756,614bbd8582094dd40655ebf74feac81fd0eab530@95.216.252.32:26656,bf6655b16b995a5ebc9bac48411f89d6b832d252@116.202.21.210:26656,94ae99b5efbbcfc26b70122c2d79f82588c14762@109.107.191.202:26656,08f5473f079950c31b94de36c844e1e42e75fede@rpc.okp.ppnv.space:06656,a5ca20b9cd9cb4b0f320a8b117aa922a866bf870@161.35.215.48:26656"
       - "BINARY_VERSION=e3110770a275c049468669e3dd3a35ea551f4f1e"
+# If the node is not syncing, connect via ssh and download the snapshot using the command below. 
+# Если нода не синхронизируется - подключитесь по ssh и скачайте снепшот с помощью команды ниже.
+# sudo curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/okp4/snap.sh | bash
     command:
       - "bash"
       - "-c"
