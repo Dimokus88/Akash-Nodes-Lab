@@ -85,12 +85,19 @@ $BINARY config chain-id $CHAIN
 $BINARY config keyring-backend os
 #====================================================
 #===========ДОБАВЛЕНИЕ GENESIS.JSON===============
-apt install gunzip -y
-wget https://server.gitopia.com/raw/gitopia/testnets/master/gitopia-janus-testnet-2/genesis.json.gz
-gunzip genesis.json.gz
-mv genesis.json $HOME/.gitopia/config/genesis.json
-DENOM=utlore
-echo 'export DENOM='${DENOM} >> /root/.bashrc
+if [[ -n ${SNAP_RPC} ]]
+then 
+	rm /root/$BINARY/config/genesis.json
+	curl -s "$SNAP_RPC"/genesis | jq .result.genesis >> /root/$BINARY/config/genesis.json
+	DENOM=`curl -s "$SNAP_RPC"/genesis | grep denom -m 1 | tr -d \"\, | sed "s/denom://" | tr -d \ `
+	echo 'export DENOM='${DENOM} >> /root/.bashrc
+fi
+if [[ -n ${GENESIS} ]]
+then
+	wget -O $HOME/$BINARY/config/genesis.json $GENESIS
+	DENOM=`cat $HOME/$BINARY/config/genesis.json | grep denom -m 1 | tr -d \"\, | sed "s/denom://" | tr -d \ `
+	echo 'export DENOM='${DENOM} >> /root/.bashrc
+fi
 echo $DENOM
 sleep 5
 #=================================================
