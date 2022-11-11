@@ -3,6 +3,7 @@ source ~/.bashrc
 sv stop okp4d
 sleep 2
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" /root/okp4d/config/config.toml
+sleep 5
 apt install lz4 -y
 sleep 2
 cp /root/okp4d/data/priv_validator_state.json /root/okp4d/priv_validator_state.json.backup
