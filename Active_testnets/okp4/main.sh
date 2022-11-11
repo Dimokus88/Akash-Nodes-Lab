@@ -62,7 +62,7 @@ INSTALL (){
 #-----------КОМПИЛЯЦИЯ БИНАРНОГО ФАЙЛА------------
 git clone $GITHUB_REPOSITORY && cd $GIT_FOLDER
 sleep 5
-git checkout e3110770a275c049468669e3dd3a35ea551f4f1e
+git checkout $BINARY_VERSION
 sleep 5
 make build
 make install
