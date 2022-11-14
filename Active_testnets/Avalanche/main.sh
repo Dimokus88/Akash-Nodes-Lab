@@ -7,9 +7,9 @@ rm $archive
 sleep 2
 cp `ls`/avalanchego /usr/bin/avax && cp -r `ls`/plugins /usr/bin/
 
-mkdir -p ./.avalanchego/configs/chains/$CHAIN/
+mkdir -p ./.avalanchego/configs/chains/C/
 sleep 2
-cat > ./.avalanchego/configs/chains/$CHAIN/config.json <<EOF
+cat > ./.avalanchego/configs/chains/C/config.json <<EOF
 {
   "state-sync-enabled": true
 }
