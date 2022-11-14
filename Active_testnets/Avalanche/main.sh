@@ -10,3 +10,4 @@ cat > ./.avalanchego/configs/chains/P/config.json <<EOF
   "state-sync-enabled": true
 }
 EOF
+avax
