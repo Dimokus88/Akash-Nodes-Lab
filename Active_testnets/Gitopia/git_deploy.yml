@@ -1,3 +1,17 @@
+
+##############################
+# Validator node on Akash Network
+#
+# Guide for deploy node https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/README.md
+# Site project: https://gitopia.com/
+# Discord or Telegram project: https://discord.gg/WT2bPyJYF3
+# Twitter: https://twitter.com/gitopiaDAO
+# Explorer: https://exp.utsa.tech/gitopia-test
+##############################
+# Akash Discord: https://discord.gg/ybKMsYYZkx
+# Akash Telegram EN: https://t.me/AkashNW
+# Akash Telegram RU: https://t.me/akash_ru
+##############################
 ---
 version: "2.0"
 
@@ -15,7 +29,7 @@ services:
       - "bash"
       - "-c"
     args:
-      - 'curl -s https://raw.githubusercontent.com/Dimokus88/universe/main/main.sh | bash '
+      - 'curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Gitopia/main.sh | bash '
     expose:
       - port: 80
         as: 80
