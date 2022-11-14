@@ -7,12 +7,12 @@ rm $archive
 sleep 2
 cp `ls`/avalanchego /usr/bin/avax && cp -r `ls`/plugins /usr/bin/
 
-mkdir -p ./.avalanchego/configs/chains/P/
+mkdir -p ./.avalanchego/configs/chains/$CHAIN/
 sleep 2
-cat > ./.avalanchego/configs/chains/P/config.json <<EOF
+cat > ./.avalanchego/configs/chains/$CHAIN/config.json <<EOF
 {
   "state-sync-enabled": true
 }
 EOF
 sleep 2
-avax
+avax --network-id=$CHAIN
