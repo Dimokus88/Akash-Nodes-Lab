@@ -15,4 +15,4 @@ cat > ./.avalanchego/configs/chains/C/config.json <<EOF
 }
 EOF
 sleep 2
-avax --network-id=$NETWORK
+avax --network-id $NETWORK
