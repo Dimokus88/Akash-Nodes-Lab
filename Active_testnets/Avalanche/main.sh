@@ -5,7 +5,7 @@ archive=`ls` && tar -xf $archive
 echo $BINARY $archive
 rm $archive
 sleep 2
-cp `ls`/avalanchego /usr/bin/avax && cp `ls`/plugins /usr/bin/
+cp `ls`/avalanchego /usr/bin/avax && cp -r `ls`/plugins /usr/bin/
 
 mkdir -p ./.avalanchego/configs/chains/P/
 sleep 2
