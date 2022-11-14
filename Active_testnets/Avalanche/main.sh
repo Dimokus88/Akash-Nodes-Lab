@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /root/
 wget $BINARY
 archive=`ls` && tar -xf $archive
 rm $archive
