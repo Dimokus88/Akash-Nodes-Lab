@@ -1,0 +1,59 @@
+---
+version: "2.0"
+
+services:
+  app:
+    image: dimokus88/ubuntu:1.3
+    env:
+      - "MY_ROOT_PASSWORD=" # Root password far a ssh connection. Пароль root для подключения по ssh.
+      - "MONIKER=Akash" # Node name. Use "Akash" in moniker(for example:Dimokus_Akash) to help develop the project! Имя ноды. Используйте в моникере "Akash"(например:Dimokus_Akash) что бы помочь в развитии проекта!
+      - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
+      - "GITHUB_REPOSITORY=gitopia://Gitopia/gitopia"
+      - "SNAP_RPC=https://gitopia-testnet-rpc.polkachu.com:443"
+      - "PEER=f0a82f850a0da74c32836b125a52bdfd9a78fdd7@65.108.105.48:11356,ce4d9462b4bb348f1a006faabb40fc4271476463@38.146.3.230:11356,b8cd2397920784facf0bb6cd4e30bb477f45124f@167.86.68.204:36656,bf1ce546fc11c9c3b9bfab0e84807212c096de36@51.91.145.100:26656"
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'curl -s https://raw.githubusercontent.com/Dimokus88/universe/main/main.sh | bash '
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 22
+        as: 22
+        to:
+          - global: true
+      - port: 26656
+        as: 26656
+        to:
+          - global: true
+      - port: 26657
+        as: 26657
+        to:
+          - global: true
+       
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 6Gi
+        storage:
+          size: 200Gi
+
+         
+  placement:
+    akash: 
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
