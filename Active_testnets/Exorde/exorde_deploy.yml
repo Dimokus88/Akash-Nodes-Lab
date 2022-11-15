@@ -1,0 +1,51 @@
+##############################
+# Validator node on Akash Network
+#
+# Guide for deploy node https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/README.md
+# Site project: https://exorde.network/
+# Discord or Telegram project: https://discord.gg/ExordeLabs
+# Twitter: https://twitter.com/ExordeLabs
+# Explorer: https://explorer.exorde.network/leaderboard
+##############################
+# Akash Discord: https://discord.gg/ybKMsYYZkx
+# Akash Telegram EN: https://t.me/AkashNW
+# Akash Telegram RU: https://t.me/akash_ru
+##############################
+---
+version: "2.0"
+services:
+  app:
+    image: dimokus88/exorde:0.2
+
+    args:
+      - "-m"
+      - "YOUR_ADDRESS_ERC-20_HERE"
+      - "-l"
+      - "2" # LOGGING (0 = no logs, 1 = general logs, 2 = validation logs, 3 = validation + scraping logs, 4 = detailed validation + scraping logs)
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 2.0
+        memory:
+          size: 4Gi
+        storage:
+          size: 5Gi
+  placement:
+    akash:       
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
+     
