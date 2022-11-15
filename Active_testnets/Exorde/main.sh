@@ -5,7 +5,7 @@ cp /usr/lib/go-1.18/bin/go /usr/bin/
 # ++++++++++++ Установка удаленного доступа ++++++++++++++
 echo 'export MY_ROOT_PASSWORD='${MY_ROOT_PASSWORD} >> /root/.bashrc
 apt -y install tmate
-mkdir /root/tmate && mkdir /root/tmate/log
+mkdir -p /root/tmate/log
 cat > /root/tmate/run <<EOF 
 #!/bin/bash
 exec 2>&1
