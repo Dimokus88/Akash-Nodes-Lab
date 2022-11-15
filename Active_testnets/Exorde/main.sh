@@ -30,5 +30,5 @@ EOF
 chmod +x /root/Exorde/log/run
 ln -s /root/Exorde /etc/service
 ln -s /var/log/Exorde/current /LOG
-
+sleep 10
 tail -f /LOG
