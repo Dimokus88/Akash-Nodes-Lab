@@ -34,7 +34,7 @@ Select project and deploy [deploy.yml](https://github.com/Dimokus88/Akash-Nodes-
 - **MONIKER**-node name.
 - **LINK_KEY**-link to direct download of `priv_validator_key.json`* file.
 
-If you don't have a `priv_validator_key.json` or want to know how to get a direct download link, refer to [this guide](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/valkey/README_EN.md).
+If you don't have a `priv_validator_key.json` or want to know how to get a direct download link, refer to [this guide](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/valkey/README.md).
 
 > *If you want to deploy an **RPC** node without a validator key, leave `LINK_KEY` blank or remove this line altogether. The node will run on the generated `priv_validator_key.json`.
 
