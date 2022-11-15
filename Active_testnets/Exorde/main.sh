@@ -14,7 +14,7 @@ git clone https://github.com/exorde-labs/ExordeModuleCLI.git
 cd ExordeModuleCLI
 pip install -r requirements.txt
 
-mkdir /root/Exorde/log    
+mkdir -p /root/Exorde/log    
 cat > /root/Exorde/run <<EOF 
 #!/bin/bash
 exec 2>&1
