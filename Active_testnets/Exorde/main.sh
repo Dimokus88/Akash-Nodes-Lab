@@ -52,7 +52,7 @@ mkdir -p /root/Exorde/log
 cat > /root/Exorde/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec python Launcher.py -m $YOUR_WALLET_ADDRESS -l 2
+exec python3 Launcher.py -m $YOUR_WALLET_ADDRESS -l 2
 EOF
 chmod +x /root/Exorde/run
 LOG=/var/log/Exorde
