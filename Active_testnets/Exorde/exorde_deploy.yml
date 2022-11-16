@@ -15,7 +15,7 @@
 version: "2.0"
 services:
   app:
-    image: dimokus88/exorde:0.2
+    image: dimokus88/exorde:0.3
 
     args:
       - "-m"
