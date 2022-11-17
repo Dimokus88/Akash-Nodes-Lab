@@ -48,16 +48,16 @@ binary=Cardchaind
 echo 'export binary='${binary} >> /root/.bashrc
 sudo mv Cardchaind /usr/local/bin/
 sudo rm Cardchain_latest_linux_amd64.tar.gz
-$binary version
+$BINARY version
 #-------------------------------------------------
 
 #=======ИНИЦИАЛИЗАЦИЯ БИНАРНОГО ФАЙЛА================
 echo =INIT=
 rm /root/$WORK_FOLDER/config/genesis.json
-$binary init "$MONIKER" --chain-id $CHAIN --home /root/$WORK_FOLDER
+$BINARY init "$MONIKER" --chain-id $CHAIN --home /root/$WORK_FOLDER
 sleep 5
-$binary config chain-id $CHAIN
-$binary config keyring-backend os
+$BINARY config chain-id $CHAIN
+$BINARY config keyring-backend os
 #====================================================
 
 #===========ДОБАВЛЕНИЕ GENESIS.JSON===============
@@ -195,24 +195,24 @@ RUN (){
 #===========ЗАПУСК НОДЫ============
 echo =Run node...=
 cd /
-mkdir /root/$binary
-mkdir /root/$binary/log
+mkdir /root/$BINARY
+mkdir /root/$BINARY/log
     
-cat > /root/$binary/run <<EOF 
+cat > /root/$BINARY/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec $binary start
+exec $BINARY start
 EOF
-chmod +x /root/$binary/run
-LOG=/var/log/$binary
+chmod +x /root/$BINARY/run
+LOG=/var/log/$BINARY
 
-cat > /root/$binary/log/run <<EOF 
+cat > /root/$BINARY/log/run <<EOF 
 #!/bin/bash
 mkdir $LOG
 exec svlogd -tt $LOG
 EOF
-chmod +x /root/$binary/log/run
-ln -s /root/$binary /etc/service
+chmod +x /root/$BINARY/log/run
+ln -s /root/$BINARY /etc/service
 }
 #--------------------------------------------------------------------------------------------
 #======================================================== КОНЕЦ БЛОКА ФУНКЦИЙ ====================================================
@@ -228,23 +228,11 @@ sleep 2m
 catching_up=`curl -s localhost:26657/status | jq -r .result.sync_info.catching_up`
 echo $catching_up
 done
-#=====Включение алерт бота =====
-
-if [[ -n $TOKEN ]]
-then
-cd /root/
-git clone https://github.com/Dimokus88/bot.git 
-cd bot
-echo $SNAP_RPC > /root/bot/RPC.txt
-chmod -R o+rx /root/bot/
-/root/bot/run_bot.sh $binary $TOKEN
-fi
-#==============================
 sleep 1m
 # -----------------------------------------------------------
 for ((;;))
   do    
-    tail -100 /var/log/$binary/current | grep -iv peer
+    tail -100 /var/log/$BINARY/current | grep -iv peer
     sleep 10m
   done
 fi
