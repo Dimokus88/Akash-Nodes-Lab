@@ -44,8 +44,8 @@ echo  "Downloading Binary..."
 wget https://github.com/DecentralCardGame/Cardchain/releases/download/v0.81/Cardchain_latest_linux_amd64.tar.gz
 tar xzf Cardchain_latest_linux_amd64.tar.gz
 chmod 775 Cardchaind
-binary=Cardchaind
-echo 'export binary='${binary} >> /root/.bashrc
+BINARY=Cardchaind
+echo 'export BINARY='${BINARY} >> /root/.bashrc
 sudo mv Cardchaind /usr/local/bin/
 sudo rm Cardchain_latest_linux_amd64.tar.gz
 $BINARY version
@@ -228,6 +228,18 @@ sleep 2m
 catching_up=`curl -s localhost:26657/status | jq -r .result.sync_info.catching_up`
 echo $catching_up
 done
+#=====Включение алерт бота =====
+
+if [[ -n $TOKEN ]]
+then
+cd /root/
+git clone https://github.com/Dimokus88/bot.git 
+cd bot
+echo $SNAP_RPC > /root/bot/RPC.txt
+chmod -R o+rx /root/bot/
+/root/bot/run_bot.sh $BINARY $TOKEN
+fi
+#==============================
 sleep 1m
 # -----------------------------------------------------------
 for ((;;))
