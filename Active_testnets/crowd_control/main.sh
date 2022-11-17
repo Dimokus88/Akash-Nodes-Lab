@@ -17,9 +17,16 @@ sleep 20
 fi
 sleep 5
 runsvdir -P /etc/service &
+if [[ -n $SNAP_RPC ]]
+then 
+CHAIN=`curl -s "$SNAP_RPC"/status | jq -r .result.node_info.network`
+WORK_FOLDER=`curl -s "$SNAP_RPC"/abci_info | jq -r .result.response.data`
+WORK_FOLDER=`echo $WORK_FOLDER | sed "s/$WORK_FOLDER/.$WORK_FOLDER/"`
+fi
 SHIFT=1000
 GIT_FOLDER=`basename $GITHUB_REPOSITORY | sed "s/.git//"`
 echo $CHAIN
+echo $WORK_FOLDER
 echo $GENESIS
 sleep 10
 echo 'export MONIKER='${MONIKER} >> /root/.bashrc
@@ -37,8 +44,8 @@ echo  "Downloading Binary..."
 wget https://github.com/DecentralCardGame/Cardchain/releases/download/v0.81/Cardchain_latest_linux_amd64.tar.gz
 tar xzf Cardchain_latest_linux_amd64.tar.gz
 chmod 775 Cardchaind
-BINARY=Cardchaind
-echo 'export BINARY='${BINARY} >> /root/.bashrc
+binary=Cardchaind
+echo 'export binary='${binary} >> /root/.bashrc
 sudo mv Cardchaind /usr/local/bin/
 sudo rm Cardchain_latest_linux_amd64.tar.gz
 $binary version
@@ -47,10 +54,10 @@ $binary version
 #=======ИНИЦИАЛИЗАЦИЯ БИНАРНОГО ФАЙЛА================
 echo =INIT=
 rm /root/$WORK_FOLDER/config/genesis.json
-$BINARY init "$MONIKER" --chain-id $CHAIN --home /root/$BINARY/
+$binary init "$MONIKER" --chain-id $CHAIN --home /root/$WORK_FOLDER
 sleep 5
-$BINARY config chain-id $CHAIN
-$BINARY config keyring-backend os
+$binary config chain-id $CHAIN
+$binary config keyring-backend os
 #====================================================
 
 #===========ДОБАВЛЕНИЕ GENESIS.JSON===============
@@ -114,21 +121,21 @@ fi
 echo $PEER
 echo $SEED
 sleep 5
-sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025$DENOM\"/;" /root/$BINARY/config/app.toml
+sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025$DENOM\"/;" /root/$WORK_FOLDER/config/app.toml
 sleep 1
-sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEED\"/;" /root/$BINARY/config/config.toml
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEER\"/;" /root/$BINARY/config/config.toml
-sed -i.bak -e "s_"tcp://127.0.0.1:26657"_"tcp://0.0.0.0:26657"_;" /root/$BINARY/config/config.toml
+sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEED\"/;" /root/$WORK_FOLDER/config/config.toml
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEER\"/;" /root/$WORK_FOLDER/config/config.toml
+sed -i.bak -e "s_"tcp://127.0.0.1:26657"_"tcp://0.0.0.0:26657"_;" /root/$WORK_FOLDER/config/config.toml
 pruning="custom" && \
 pruning_keep_recent="5" && \
 pruning_keep_every="1000" && \
 pruning_interval="50" && \
-sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" /root/$BINARY/config/app.toml && \
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" /root/$BINARY/config/app.toml && \
-sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" /root/$BINARY/config/app.toml && \
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" /root/$BINARY/config/app.toml
+sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" /root/$WORK_FOLDER/config/app.toml && \
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" /root/$WORK_FOLDER/config/app.toml && \
+sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" /root/$WORK_FOLDER/config/app.toml && \
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" /root/$WORK_FOLDER/config/app.toml
 snapshot_interval="1000" && \
-sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" /root/$BINARY/config/app.toml
+sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" /root/$WORK_FOLDER/config/app.toml
 #-----------------------------------------------------------
 
 #|||||||||||||||||||||||||||||||||||ФУНКЦИЯ Backup||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -144,7 +151,7 @@ then
 	sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
 	s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$RPC\"| ; \
 	s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-	s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /root/$BINARY/config/config.toml
+	s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /root/$WORK_FOLDER/config/config.toml
 	echo RPC
 fi
 #================================================
@@ -155,7 +162,7 @@ if  [[ -f "$file" ]]
 then
 	      sleep 2
 	      cd /
-	      rm /root/$BINARY/config/priv_validator_key.json
+	      rm /root/$WORK_FOLDER/config/priv_validator_key.json
 	      echo ==========priv_validator_key found==========
 	      echo ========Обнаружен priv_validator_key========
 	      cp /tmp/priv_validator_key.json /root/$WORK_FOLDER/config/
@@ -188,24 +195,24 @@ RUN (){
 #===========ЗАПУСК НОДЫ============
 echo =Run node...=
 cd /
-mkdir /root/$BINARY
-mkdir /root/$BINARY/log
+mkdir /root/$binary
+mkdir /root/$binary/log
     
-cat > /root/$BINARY/run <<EOF 
+cat > /root/$binary/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec $BINARY start --home /root/$BINARY/
+exec $binary start
 EOF
-chmod +x /root/$BINARY/run
-LOG=/var/log/$BINARY
+chmod +x /root/$binary/run
+LOG=/var/log/$binary
 
-cat > /root/$BINARY/log/run <<EOF 
+cat > /root/$binary/log/run <<EOF 
 #!/bin/bash
 mkdir $LOG
 exec svlogd -tt $LOG
 EOF
-chmod +x /root/$BINARY/log/run
-ln -s /root/$BINARY /etc/service
+chmod +x /root/$binary/log/run
+ln -s /root/$binary /etc/service
 }
 #--------------------------------------------------------------------------------------------
 #======================================================== КОНЕЦ БЛОКА ФУНКЦИЙ ====================================================
@@ -221,11 +228,23 @@ sleep 2m
 catching_up=`curl -s localhost:26657/status | jq -r .result.sync_info.catching_up`
 echo $catching_up
 done
+#=====Включение алерт бота =====
+
+if [[ -n $TOKEN ]]
+then
+cd /root/
+git clone https://github.com/Dimokus88/bot.git 
+cd bot
+echo $SNAP_RPC > /root/bot/RPC.txt
+chmod -R o+rx /root/bot/
+/root/bot/run_bot.sh $binary $TOKEN
+fi
+#==============================
 sleep 1m
 # -----------------------------------------------------------
 for ((;;))
   do    
-    tail -100 /var/log/$BINARY/current | grep -iv peer
+    tail -100 /var/log/$binary/current | grep -iv peer
     sleep 10m
   done
 fi
