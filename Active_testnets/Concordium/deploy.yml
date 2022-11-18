@@ -1,0 +1,74 @@
+---
+version: "2.0"
+
+services:
+  app:
+    image: concordium/testnet-node:latest
+    env:
+      - CONCORDIUM_NODE_CONNECTION_BOOTSTRAP_NODES=bootstrap.testnet.concordium.com:8888
+      - CONCORDIUM_NODE_CONSENSUS_GENESIS_DATA_FILE=/testnet-genesis.dat
+      - CONCORDIUM_NODE_CONSENSUS_DOWNLOAD_BLOCKS_FROM=https://catchup.testnet.concordium.com/blocks.idx
+      - CONCORDIUM_NODE_DATA_DIR=/mnt/data
+      - CONCORDIUM_NODE_CONFIG_DIR=/mnt/data
+      - CONCORDIUM_NODE_LISTEN_PORT=8889
+      - CONCORDIUM_NODE_CONNECTION_DESIRED_NODES=5
+      - CONCORDIUM_NODE_CONNECTION_MAX_ALLOWED_NODES=10
+      - CONCORDIUM_NODE_RPC_SERVER_ADDR=0.0.0.0
+      - CONCORDIUM_NODE_RPC_SERVER_PORT=10001
+      - CONCORDIUM_NODE_GRPC2_LISTEN_PORT=20001
+      - CONCORDIUM_NODE_GRPC2_LISTEN_ADDRESS=0.0.0.0
+      - CONCORDIUM_NODE_CONNECTION_HARD_CONNECTION_LIMIT=20
+      - CONCORDIUM_NODE_CONNECTION_THREAD_POOL_SIZE=2
+      - CONCORDIUM_NODE_CONNECTION_BOOTSTRAPPING_INTERVAL=1800
+      - CONCORDIUM_NODE_BAKER_HASKELL_RTS_FLAGS=-N2,-I0
+      # COLLECTOR
+      - CONCORDIUM_NODE_COLLECTOR_NODE_NAME=docker-test
+      - CONCORDIUM_NODE_COLLECTOR_URL=https://dashboard.testnet.concordium.com/nodes/post
+      - CONCORDIUM_NODE_COLLECTOR_COLLECT_INTERVAL=5000
+      - CONCORDIUM_NODE_COLLECTOR_GRPC_HOST=http://testnet-node:10001
+    
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Concordium/main.sh | bash '
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 8889
+        as: 8889
+        to:
+          - global: true
+      - port: 10001
+        as: 10001
+        to:
+          - global: true
+      - port: 20001
+        as: 20001
+        to:
+          - global: true
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 2.0
+        memory:
+          size: 8Gi
+        storage:
+          size: 50Gi
+
+         
+  placement:
+    akash: 
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
