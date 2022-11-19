@@ -30,7 +30,7 @@ mkdir -p /root/node-collector/log
 cat > /root/node-collector/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec /node-collector --node-name $CONCORDIUM_NODE_COLLECTOR_NODE_NAME --collector-url $CONCORDIUM_NODE_COLLECTOR_URL --collect-interval $CONCORDIUM_NODE_COLLECTOR_COLLECT_INTERVAL
+exec /node-collector --node-name $CONCORDIUM_NODE_COLLECTOR_NODE_NAME --collector-url $CONCORDIUM_NODE_COLLECTOR_URL --collect-interval $CONCORDIUM_NODE_COLLECTOR_COLLECT_INTERVAL --grpc-host $CONCORDIUM_NODE_COLLECTOR_GRPC_HOST
 EOF
 mkdir /var/log/node-collector
 cat > /root/node-collector/log/run <<EOF 
