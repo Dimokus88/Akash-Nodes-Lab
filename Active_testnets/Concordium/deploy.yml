@@ -17,8 +17,6 @@ services:
         to:
           - global: true
     env:
-      - CONCORDIUM_NODE_CONNECTION_BOOTSTRAP_NODES=bootstrap.testnet.concordium.com:8888
-      - CONCORDIUM_NODE_CONSENSUS_GENESIS_DATA_FILE=/testnet-genesis.dat
       - CONCORDIUM_NODE_LISTEN_PORT=8889
       - CONCORDIUM_NODE_CONNECTION_DESIRED_NODES=5
       - CONCORDIUM_NODE_CONNECTION_MAX_ALLOWED_NODES=10
