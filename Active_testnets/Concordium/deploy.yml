@@ -22,16 +22,16 @@ services:
       - CONCORDIUM_NODE_CONNECTION_BOOTSTRAPPING_INTERVAL=1800
       - CONCORDIUM_NODE_BAKER_HASKELL_RTS_FLAGS=-N2,-I0
       # COLLECTOR
-      - CONCORDIUM_NODE_COLLECTOR_NODE_NAME=docker-test
+      - CONCORDIUM_NODE_COLLECTOR_NODE_NAME=<YOUR_NODE_NAME>
       - CONCORDIUM_NODE_COLLECTOR_URL=https://dashboard.testnet.concordium.com/nodes/post
       - CONCORDIUM_NODE_COLLECTOR_COLLECT_INTERVAL=5000
-      - CONCORDIUM_NODE_COLLECTOR_GRPC_HOST=http://testnet-node:10001
+      - CONCORDIUM_NODE_COLLECTOR_GRPC_HOST=http://127.0.0.1:10001
     
     command:
       - "bash"
       - "-c"
     args:
-      - 'apt install curl -y ; curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Concordium/main.sh | bash '
+      - 'apt-get update ; apt-get upgrade -y ; apt install curl -y ; curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Concordium/main.sh | bash'
     expose:
       - port: 80
         as: 80
