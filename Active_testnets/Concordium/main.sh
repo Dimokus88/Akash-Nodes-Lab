@@ -1,9 +1,7 @@
 #!/bin/bash
 TZ=Europe/Kiev
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-apt-get update
-apt-get upgrade -y
-apt install ssh runit tmate -y
+apt install runit -y
 runsvdir -P /etc/service &
 sleep 2
 #------------Служба concordium-node----------
