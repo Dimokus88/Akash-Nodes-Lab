@@ -31,7 +31,7 @@ services:
       - "bash"
       - "-c"
     args:
-      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Concordium/main.sh | bash '
+      - 'apt install curl -y ; curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Concordium/main.sh | bash '
     expose:
       - port: 80
         as: 80
