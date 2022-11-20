@@ -38,7 +38,7 @@ services:
   testnet-node-collector:
     image: concordium/testnet-node:latest
     env:
-      - CONCORDIUM_NODE_COLLECTOR_NODE_NAME=Dimokus Akash
+      - CONCORDIUM_NODE_COLLECTOR_NODE_NAME=<YOUR_NODE_NAME>
       - CONCORDIUM_NODE_COLLECTOR_URL=https://dashboard.testnet.concordium.com/nodes/post
       - CONCORDIUM_NODE_COLLECTOR_COLLECT_INTERVAL=5000
       - CONCORDIUM_NODE_COLLECTOR_GRPC_HOST=http://testnet-node:10001
