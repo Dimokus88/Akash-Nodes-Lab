@@ -1,4 +1,5 @@
 #!/bin/bash
+runsvdir -P /etc/service &
 cp /usr/lib/go-1.18/bin/go /usr/bin/
 git clone https://github.com/ledgerwatch/erigon.git
 cd erigon
