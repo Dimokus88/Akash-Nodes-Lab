@@ -1,10 +1,12 @@
 #!/bin/bash
 cp /usr/lib/go-1.18/bin/go /usr/bin/
 git clone https://github.com/ledgerwatch/erigon.git
-cd erigon; git checkout stable
+cd erigon
+git checkout stable
 make
 PATH=$PATH:/erigon/build/bin
 mkdir /root/erigon && mkdir /root/erigon/log
+
 cat > /root/erigon/run <<EOF 
 #!/bin/bash
 exec 2>&1
