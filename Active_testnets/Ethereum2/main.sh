@@ -4,13 +4,13 @@ git clone https://github.com/ledgerwatch/erigon.git
 cd erigon
 git checkout stable
 make
-PATH=$PATH:/erigon/build/bin
+
 mkdir /root/erigon && mkdir /root/erigon/log
 
 cat > /root/erigon/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec erigon --chain=goerli --datadir="/home/erigon/datadir/" --authrpc.jwtsecret="/home/erigon/jwtsecret" --ws --private.api.addr="localhost:9090" --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"
+exec /erigon/build/bin/erigon --chain=goerli --datadir="/home/erigon/datadir/" --authrpc.jwtsecret="/home/erigon/jwtsecret" --ws --private.api.addr="localhost:9090" --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"
 EOF
 cat > /root/erigon/log/run <<EOF 
 #!/bin/bash
