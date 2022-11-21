@@ -34,9 +34,9 @@ services:
   consensus:
     image: sigp/lighthouse:latest
     env:
-      - LINK_VALIDATOR_KEYS=https://drive.google.com/uc?export=download&id=1EraYfMU2sVlInv-Ko-zvgeH_6dvGgNLd
-      - ACCOUNT_ETH_PASS=31081988
-      - RECEPIENT=0x9aB137929b89C2c5F47ca43e9D728186D13DF349
+      - LINK_VALIDATOR_KEYS=
+      - ACCOUNT_ETH_PASS=
+      - RECEPIENT=
     command:
       - "bash"
       - "-c"
