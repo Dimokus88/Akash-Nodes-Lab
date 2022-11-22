@@ -1,8 +1,12 @@
 #!/bin/bash
+cp /usr/lib/go-1.18/bin/go /usr/bin/
 runsvdir -P /etc/service &
+
+# > Run SSH connection
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 (echo $SSH_PASS; echo $SSH_PASS) | passwd root && service ssh restart
-cp /usr/lib/go-1.18/bin/go /usr/bin/
+# <
+
 # ===== Istall and runnig Erigon =====
 git clone https://github.com/ledgerwatch/erigon.git
 cd erigon
@@ -26,11 +30,12 @@ chmod +x /root/erigon/log/run
 ln -s /root/erigon /etc/service
 # <<
 
-# echo ##Install Erigon service is complete. Check Erigon logs command in shell "tail -f /var/log/erigon/current"
+echo ##Install Erigon service is complete. Check Erigon logs command in shell "tail -f /var/log/erigon/current"
 sleep 10
 # ===================================
 
 # -------- Install and running Lighthouse ---------
+apt install g++ cmake llvm-dev libclang-dev protobuf-compiler -y
 cd /
 git clone https://github.com/sigp/lighthouse.git
 cd lighthouse
