@@ -8,8 +8,7 @@ services:
       - "sh"
       - "-c"	
     args:
-      - 'mkdir -p /mnt/erigon/datadir/; mkdir -p /mnt/erigon/jwtsecret;
-      erigon --chain=goerli --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"'
+      - 'erigon --chain=goerli --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"'
     expose:
       - port: 30303
         as: 30303
