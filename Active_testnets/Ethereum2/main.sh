@@ -64,7 +64,7 @@ exec svlogd -tt /var/log/lighthouse
 EOF
 chmod +x /root/lighthouse/run
 chmod +x /root/lighthouse/log/run
-sleep 20m
+sleep 1m
 ln -s /root/lighthouse /etc/service
 # <<
 # -------------------------------------------------
