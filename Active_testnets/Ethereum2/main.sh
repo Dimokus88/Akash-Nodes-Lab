@@ -35,7 +35,7 @@ sleep 10
 # ===================================
 
 # -------- Install and running Lighthouse ---------
-apt install g++ cmake llvm-dev libclang-dev protobuf-compiler -y
+apt install g++ cmake llvm-dev libclang-dev protobuf-compiler rustc -y
 cd /
 git clone https://github.com/sigp/lighthouse.git
 cd lighthouse
