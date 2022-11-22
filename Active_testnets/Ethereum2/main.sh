@@ -4,7 +4,7 @@ runsvdir -P /etc/service &
 # ++ Download validator keys ++
 wget -O /root/validator_keys.tar "$LINK_VALIDATOR_KEYS"
 sleep 2
-tar -xf /root/validator_keys.tar
+tar -C /root/ -xf /root/validator_keys.tar
 sleep 2
 echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
 
