@@ -58,7 +58,7 @@ mkdir /root/lighthouse && mkdir /root/lighthouse/log
 cat > /root/lighthouse/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec lighthouse bn --network $NETWORK --datadir /var/lib/lighthouse --http --execution-endpoint=http://0.0.0.0:8551 --execution-jwt=/home/erigon/jwtsecret/jwt.hex --metrics --suggested-fee-recipient $RECEPIENT
+exec lighthouse bn --network $NETWORK --datadir /var/lib/lighthouse --http --execution-endpoint=http://127.0.0.1:8551 --execution-jwt=/home/erigon/jwtsecret/jwt.hex --metrics --suggested-fee-recipient $RECEPIENT
 EOF
 cat > /root/lighthouse/log/run <<EOF 
 #!/bin/bash
