@@ -8,8 +8,8 @@ services:
       - "sh"
       - "-c"	
     args:
-      - 'mkdir -p /home/erigon/datadir/; mkdir -p /home/erigon/jwtsecret;
-      erigon --chain=goerli --datadir="/home/erigon/datadir/" --authrpc.jwtsecret="/mnt/erigon/jwtsecret/jwt.hex" --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"'
+      - 'mkdir -p /mnt/erigon/datadir/; mkdir -p /mnt/erigon/jwtsecret;
+      erigon --chain=goerli --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"'
     expose:
       - port: 30303
         as: 30303
@@ -41,10 +41,11 @@ services:
       - "bash"
       - "-c"
     args:
-      - 'mkdir /home/lighthouse ; mkdir -p /home/erigon/jwtsecret ; apt-get update && apt-get upgrade -y; apt install wget tar -y;
-      wget -O /root/validator_keys.tar "$LINK_VALIDATOR_KEYS";  tar -xf /root/validator_keys.tar ; echo $ACCOUNT_ETH_PASS > /validator_keys/pass.txt ;
-      lighthouse --network goerli account validator import --directory /validator_keys/ --datadir /var/lib/lighthouse --password-file /validator_keys/pass.txt --reuse-password; rm /validator_keys/pass.txt; sleep 1m ;
-      lighthouse bn --network goerli --datadir /var/lib/lighthouse --http --execution-endpoint http://node:8551 --execution-jwt /home/erigon/jwtsecret/jwt.hex --metrics --suggested-fee-recipient $RECEPIENT'
+      - 'apt-get update && apt-get upgrade -y; apt install ssh wget tar -y;
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config; (echo 111111; echo 111111) | passwd root && service ssh restart;
+      wget -O /data/validator_keys.tar "$LINK_VALIDATOR_KEYS";  tar -C /data/ -xf /data/validator_keys.tar ; echo $ACCOUNT_ETH_PASS > /data/validator_keys/pass.txt ;
+      lighthouse --network goerli account validator import --directory /data/validator_keys/ --password-file /data/validator_keys/pass.txt --reuse-password; rm /data/validator_keys/pass.txt; sleep 10m ;
+      lighthouse bn --network goerli --http --http --checkpoint-sync-url=https://prater-checkpoint-sync.stakely.io --execution-endpoint http://node:8551 --execution-jwt /home/erigon/.local/share/erigon/goerli/jwt.hex --metrics --suggested-fee-recipient $RECEPIENT'
 profiles:
   compute:
     node:
@@ -52,7 +53,7 @@ profiles:
         cpu:
           units: 2.0
         memory:
-          size: 2Gi
+          size: 8Gi
         storage:
           size: 200Gi
     consensus:
