@@ -21,6 +21,7 @@ make
 
 # >> Create Erigon service on runit
 mkdir /root/erigon && mkdir /root/erigon/log
+mkdir -p /home/erigon/jwtsecret/
 cat > /root/erigon/run <<EOF 
 #!/bin/bash
 exec 2>&1
