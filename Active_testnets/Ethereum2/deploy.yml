@@ -9,7 +9,7 @@ services:
       - "-c"	
     args:
       - 'mkdir -p /home/erigon/datadir/; mkdir -p /home/erigon/jwtsecret;
-      erigon --chain=goerli --datadir="/home/erigon/datadir/" --authrpc.jwtsecret="/home/erigon/jwtsecret" --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"'
+      erigon --chain=goerli --datadir="/home/erigon/datadir/" --authrpc.jwtsecret="/mnt/erigon/jwtsecret/jwt.hex" --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"'
     expose:
       - port: 30303
         as: 30303
