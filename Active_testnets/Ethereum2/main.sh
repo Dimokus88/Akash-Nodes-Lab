@@ -1,5 +1,7 @@
 #!/bin/bash
 runsvdir -P /etc/service &
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+(echo $SSH_PASS; echo $SSH_PASS) | passwd root && service ssh restart
 cp /usr/lib/go-1.18/bin/go /usr/bin/
 # ===== Istall and runnig Erigon =====
 git clone https://github.com/ledgerwatch/erigon.git
