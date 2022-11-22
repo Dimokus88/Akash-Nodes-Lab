@@ -30,7 +30,7 @@ chmod +x /root/erigon/log/run
 ln -s /root/erigon /etc/service
 # <<
 
-echo ##Install Erigon service is complete. Check Erigon logs command in shell "tail -f /var/log/erigon/current"
+echo == Install Erigon service is complete. Check Erigon logs command in shell "tail -f /var/log/erigon/current" ==
 sleep 10
 # ===================================
 
@@ -72,9 +72,9 @@ ln -s /root/lighthouse /etc/service
 # <<
 # -------------------------------------------------
 
-echo ################################################################################
-echo #     Check Erigon logs command in shell "tail -f /var/log/erigon/current"     #
-echo # Check Lighthouse logs command in shell "tail -f /var/log/lighthouse/current" #
-echo ################################################################################
+echo ================================================================================
+echo =     Check Erigon logs command in shell "tail -f /var/log/erigon/current"     =
+echo = Check Lighthouse logs command in shell "tail -f /var/log/lighthouse/current" =
+echo ================================================================================
 
 sleep infinity
