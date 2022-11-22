@@ -42,6 +42,7 @@ sleep 2
 # ++ Download validator keys ++
 wget -O /root/validator_keys.tar "$LINK_VALIDATOR_KEYS"
 tar -xf /root/validator_keys.tar
+sleep 2
 echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
 
 # ++++ import account ++++
