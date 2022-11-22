@@ -35,12 +35,8 @@ sleep 10
 # ===================================
 
 # -------- Install and running Lighthouse ---------
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-cd /
-git clone https://github.com/sigp/lighthouse.git
-cd lighthouse
-git checkout stable
-make
+wget -O lighthouse.tar.gz $LIGHTHOUSE_LINK
+tar -C /usr/bin -xf lighthouse.tar.gz
 sleep 2
 
 # ++ Download validator keys ++
@@ -50,7 +46,7 @@ echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
 
 # ++++ import account ++++
 lighthouse --network $NETWORK account validator import --directory /root/validator_keys/ --datadir /var/lib/lighthouse --password-file /root/validator_keys/pass.txt --reuse-password
-rm /validator_keys/pass.txt
+rm /root/validator_keys/pass.txt
 
 # >> Create Lighthouse service on runit 
 
