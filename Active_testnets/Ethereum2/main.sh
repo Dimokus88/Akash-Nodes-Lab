@@ -1,6 +1,12 @@
 #!/bin/bash
 cp /usr/lib/go-1.18/bin/go /usr/bin/
 runsvdir -P /etc/service &
+# ++ Download validator keys ++
+wget -O /root/validator_keys.tar "$LINK_VALIDATOR_KEYS"
+sleep 2
+tar -xf /root/validator_keys.tar
+sleep 2
+echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
 
 # > Run SSH connection
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
@@ -38,13 +44,6 @@ sleep 10
 wget -O lighthouse.tar.gz $LIGHTHOUSE_LINK
 tar -C /usr/bin -xf lighthouse.tar.gz
 sleep 2
-
-# ++ Download validator keys ++
-wget -O /root/validator_keys.tar "$LINK_VALIDATOR_KEYS"
-tar -xf /root/validator_keys.tar
-sleep 2
-echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
-
 # ++++ import account ++++
 lighthouse --network $NETWORK account validator import --directory /root/validator_keys/ --datadir /var/lib/lighthouse --password-file /root/validator_keys/pass.txt --reuse-password
 rm /root/validator_keys/pass.txt
