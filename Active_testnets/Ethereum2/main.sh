@@ -35,7 +35,7 @@ sleep 10
 # ===================================
 
 # -------- Install and running Lighthouse ---------
-apt install g++ cmake llvm-dev libclang-dev protobuf-compiler rustc cargo -y
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 cd /
 git clone https://github.com/sigp/lighthouse.git
 cd lighthouse
