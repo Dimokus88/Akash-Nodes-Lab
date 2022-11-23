@@ -46,7 +46,7 @@ wget -O lighthouse.tar.gz $LIGHTHOUSE_LINK
 tar -C /usr/bin -xf lighthouse.tar.gz
 sleep 2
 # ++++ import account ++++
-lighthouse --network $NETWORK account validator import --directory /root/validator_keys/ --datadir /var/lib/lighthouse --password-file /root/validator_keys/pass.txt --reuse-password
+lighthouse --network $NETWORK account validator import --directory /root/validator_keys/ --datadir /home/lighthouse --password-file /root/validator_keys/pass.txt --reuse-password
 rm /root/validator_keys/pass.txt
 
 # >> Create Lighthouse service on runit 
@@ -55,7 +55,7 @@ mkdir /root/lighthouse && mkdir /root/lighthouse/log
 cat > /root/lighthouse/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec lighthouse bn --network $NETWORK --datadir /var/lib/lighthouse --http --checkpoint-sync-url=$SNAP_URL --execution-endpoint=http://127.0.0.1:8551 --execution-jwt=/home/erigon/jwtsecret/jwt.hex --metrics --suggested-fee-recipient $RECEPIENT
+exec lighthouse bn --network $NETWORK --datadir /home/lighthouse --http --checkpoint-sync-url=$SNAP_URL --execution-endpoint=http://127.0.0.1:8551 --execution-jwt=/home/erigon/jwtsecret/jwt.hex --metrics --suggested-fee-recipient $RECEPIENT
 EOF
 cat > /root/lighthouse/log/run <<EOF 
 #!/bin/bash
