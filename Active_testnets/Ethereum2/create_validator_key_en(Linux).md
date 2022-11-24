@@ -42,6 +42,6 @@ Go to the folder with the keys from **p.10** (for me it's `/home/dimokus/validat
 cat filename_deposit.json | openssl base64 -A
 cat filename_keystore.json | openssl base64 -A
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/23629420/203850724-df0813cd-ff75-4bd9-a4e0-eba273da5bd9.png" width=70%</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/23629420/203850724-df0813cd-ff75-4bd9-a4e0-eba273da5bd9.png" width=100%</p>
 
 Save the command outputs to a text file, you will need them when filling out the `deploy.yml` file.
