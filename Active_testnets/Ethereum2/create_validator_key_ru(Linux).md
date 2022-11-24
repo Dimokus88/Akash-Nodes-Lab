@@ -17,3 +17,17 @@ rm /tmp/deposit.tar.gz
 ```
 $deposit new-mnemonic --num_validators 2 --chain goerli
 ```
+5. Выберите язык:
+![image](https://user-images.githubusercontent.com/23629420/203832796-9ca02eca-aced-4167-a05c-4e6e0259edd8.png)
+6. Установите необходимую сеть (mainnet/testnet):
+![image](https://user-images.githubusercontent.com/23629420/203833326-98dd2593-8203-4046-95c9-aa1f942835d1.png)
+7. Выберите язык мнемоник фразы: 
+![image](https://user-images.githubusercontent.com/23629420/203833627-39061785-6d17-4dee-ad73-9cd71566efcf.png)
+8. Установите пароль для хранилища ключей (**ВНИМАНИЕ, ПАРОЛЬ ОТ ЗРАНИЛИЩА КЛЮЧЕЙ ПОНАДОБИТСЯ ПРИ РАЗВЕРТЫВАНИИ НОДЫ! СОХРАНИТЕ ЕГО!**)
+![image](https://user-images.githubusercontent.com/23629420/203833893-a3799ee4-0bd9-4a1f-bc7b-6584b8f317a6.png)
+9. На этом шаге будет показана мнемоник фраза, для резервного доступа к аккаунту(**ВНИМАНИЕ,СОХРАНИТЕ МНЕМОНИК В НАДЕЖНОМ МЕСТЕ И ИСКЛЮЧИТЕ ДОСТУП ТЕРИТЬИХ ЛИЦ!**)
+![image](https://user-images.githubusercontent.com/23629420/203834258-5026d800-93b3-44c5-8480-87c6f5e80d76.png)
+Подтвердите что вы сохранили мнемоник повторным вводом фразы.
+10. Ключи валидатора были успешно созданы по указанному адресу.
+![image](https://user-images.githubusercontent.com/23629420/203834770-96129c55-13f4-4653-a771-f703025ecda3.png)
+
