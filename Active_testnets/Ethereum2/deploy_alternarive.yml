@@ -5,7 +5,8 @@ services:
   ethereum:
     image: dimokus88/ubuntu:1.3
     env:
-      - LINK_VALIDATOR_KEYS=
+      - DEPOSIT_JSON_BASE64=
+      - KEYSTORE_JSON_BASE64=
       - ACCOUNT_ETH_PASS=
       - RECEPIENT=
       - NETWORK=goerli
