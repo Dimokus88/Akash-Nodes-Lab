@@ -2,10 +2,12 @@
 cp /usr/lib/go-1.18/bin/go /usr/bin/
 runsvdir -P /etc/service &
 # ++ Download validator keys ++
-wget -O /root/validator_keys.tar "$LINK_VALIDATOR_KEYS"
+mkdir /root/validator_keys
 sleep 2
-tar -C /root/ -xf /root/validator_keys.tar
+echo $DEPOSIT_JSON_BASE64 | openssl base64 -d > /root/validator_keys/deposit.json
 sleep 2
+echo $KEYSTORE_JSON_BASE64 | openssl base64 -d > /root/validator_keys/keystore.json
+
 echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
 
 # > Run SSH connection
