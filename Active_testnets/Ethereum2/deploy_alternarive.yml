@@ -14,7 +14,7 @@ services:
       - SNAP_URL=https://prater-checkpoint-sync.stakely.io
     command:
       - "bash"
-      - "-c"	
+      - "-c"
     args:
       - 'curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Ethereum2/main.sh | bash '
     params:
@@ -51,18 +51,18 @@ profiles:
     ethereum:
       resources:
         cpu:
-          units: 6.0
+          units: 8.0
         memory:
           size: 20Gi
         storage:
-          - size: 5Gi
+          - size: 50Gi
           - name: data
-            size: 250Gi
+            size: 500Gi
             attributes:
               persistent: true
               class: beta3
   placement:
-    akash: 
+    akash:
       pricing:
         ethereum:
           denom: uakt
@@ -71,4 +71,4 @@ deployment:
   ethereum:
     akash:
       profile: ethereum
-      count: 1 
+      count: 1
