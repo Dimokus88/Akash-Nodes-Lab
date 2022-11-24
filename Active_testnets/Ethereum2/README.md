@@ -8,7 +8,7 @@ Fill in the variables in the SDL file:
       
 `- KEYSTORE_JSON_BASE64=`- encrypted **keystore_xxxxx.json** with base64 ([Generation instruction](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Active_testnets/Ethereum2/create_validator_key_en(Linux).md#encrypt-json-files))
      
-`- ACCOUNT_ETH_PASS=` - password from the validator keys from [point 8 of the instruction](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Active_testnets/Ethereum2/create_validator_key_en(Linux).md))
+`- ACCOUNT_ETH_PASS=` - password from the validator keys from ([point 8 of the instruction](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Active_testnets/Ethereum2/create_validator_key_en(Linux).md))
       
 `- RECEPIENT=` - recipient of rewards.
 
