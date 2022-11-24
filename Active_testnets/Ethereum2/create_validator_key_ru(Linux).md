@@ -42,6 +42,6 @@ $deposit new-mnemonic --num_validators 2 --chain goerli
 cat имя_файла_deposit.json | openssl base64 -A
 cat имя_файла_keystore.json | openssl base64 -A
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/23629420/203850724-df0813cd-ff75-4bd9-a4e0-eba273da5bd9.png" width=70% </p>
+<p align="center"><img src="https://user-images.githubusercontent.com/23629420/203850724-df0813cd-ff75-4bd9-a4e0-eba273da5bd9.png" width=100% </p>
 
 Сохраните выводы команд в текстовый файл, они понадобятся при заполнении файла `deploy.yml`.
