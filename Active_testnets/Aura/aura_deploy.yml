@@ -19,7 +19,7 @@ services:
     env:
       - "MY_ROOT_PASSWORD=" #Root password far a ssh connection. Пароль root для подключения по ssh.
       - "MONIKER=Akash" # Node name.Имя ноды.
-      - "KEY_JSON_BASE64=" # priv_validator_key.json file encrypted as a string using the base64 method. Файл priv_validator_key.json зашифрованный в видестроки методом base64.
+      - "VALIDATOR_KEY_JSON_BASE64=" # priv_validator_key.json file encrypted as a string using the base64 method. Файл priv_validator_key.json зашифрованный в видестроки методом base64.
       - "GITHUB_REPOSITORY=https://github.com/aura-nw/aura"
       - "GENESIS=https://github.com/aura-nw/testnets/raw/main/euphoria-2/euphoria-2-genesis.tar.gz"
       - "SNAP_RPC=https://rpc-t.aura.nodestake.top/"
