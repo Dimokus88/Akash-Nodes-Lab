@@ -1,0 +1,69 @@
+##############################
+# Validator node on Akash Network
+#
+# Guide for deploy node https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/README.md
+# Site project: 
+# Discord or Telegram project: 
+# Twitter: 
+# Explorer: 
+##############################
+# Akash Discord: https://discord.gg/ybKMsYYZkx
+# Akash Telegram EN: https://t.me/AkashNW
+# Akash Telegram RU: https://t.me/akash_ru
+##############################
+---
+version: "2.0"
+services:
+  app:
+    image: dimokus88/ubuntu:1.3
+    env:
+      - "MY_ROOT_PASSWORD=" #Root password far a ssh connection. Пароль root для подключения по ssh.
+      - "MONIKER=Akash" # Node name.Имя ноды.
+      - "KEY_JSON_BASE64=" # priv_validator_key.json file encrypted as a string using the base64 method. Файл priv_validator_key.json зашифрованный в видестроки методом base64.
+      - "GITHUB_REPOSITORY=https://rpc-t.aura.nodestake.top/"
+      - "GENESIS=https://github.com/aura-nw/testnets/raw/main/euphoria-2/euphoria-2-genesis.tar.gz"
+      - "SNAP_RPC=https://rpc-t.aura.nodestake.top/"
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/universe/main/node.sh | bash '
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 22
+        as: 22
+        to:
+          - global: true
+      - port: 26656
+        as: 26656
+        to:
+          - global: true
+      - port: 26657
+        as: 26657
+        to:
+          - global: true
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 6Gi
+        storage:
+          size: 200Gi
+  placement:
+    akash:       
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
+     
