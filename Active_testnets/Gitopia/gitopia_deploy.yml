@@ -24,6 +24,7 @@ services:
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=gitopia://Gitopia/gitopia"
       - "SNAP_RPC=https://rpc-gitopia-janus-testnet-2.mms.team:443"
+      - "BINARY_VERSION=64e4712aeae3c723346a365d67cf1dd3e91cc50c"
     command:
       - "bash"
       - "-c"
