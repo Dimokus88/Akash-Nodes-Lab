@@ -23,6 +23,7 @@ services:
       - "GITHUB_REPOSITORY=https://github.com/aura-nw/aura"
       - "GENESIS=https://github.com/aura-nw/testnets/raw/main/euphoria-2/euphoria-2-genesis.tar.gz"
       - "SNAP_RPC=https://rpc-t.aura.nodestake.top/"
+      - "DENOM=ueaura"
     command:
       - "bash"
       - "-c"
