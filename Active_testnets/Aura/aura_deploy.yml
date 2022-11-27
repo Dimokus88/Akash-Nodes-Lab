@@ -18,11 +18,12 @@ services:
     image: dimokus88/ubuntu:1.3
     env:
       - "MY_ROOT_PASSWORD=" #Root password far a ssh connection. Пароль root для подключения по ssh.
-      - "MONIKER=Akash" # Node name.Имя ноды.
+      - "MONIKER=Akas" # Node name.Имя ноды.
       - "VALIDATOR_KEY_JSON_BASE64=" # priv_validator_key.json file encrypted as a string using the base64 method. Файл priv_validator_key.json зашифрованный в видестроки методом base64.
       - "GITHUB_REPOSITORY=https://github.com/aura-nw/aura"
       - "GENESIS=https://github.com/aura-nw/testnets/raw/main/euphoria-2/euphoria-2-genesis.tar.gz"
-      - "SNAP_RPC=https://rpc-t.aura.nodestake.top/"
+      - "SNAP_RPC=https://rpc.euphoria.aura.network:443"
+      - "PEER=2e1407476ad3566eb11ac92ad1df4782c7ba83dd@18.143.61.108:26656,5b2758dfcbcbc19b9a0ee04c09008b67c98cd7d9@54.254.220.113:26656,7812205773ac30f3d47200ac2391c79896c60135@65.109.30.12:46656,841fa4f52671cc02f9a817a6d4a4522cd9a049a6@65.108.142.47:21656,3d6b07bdb11754c8c8512525dac109d8bdee3857@135.181.143.48:28656,b130852645cc3d7925cfccd14d97425a2260e7ec@5.161.141.144:26656,2694dd6c739393ad7066dc384e41a21b334f5a35@142.132.223.189:26656,638b68dcb4f665fb5b08a281b20c3adc6abdecba@141.94.175.119:26656"
       - "DENOM=ueaura"
     command:
       - "bash"
