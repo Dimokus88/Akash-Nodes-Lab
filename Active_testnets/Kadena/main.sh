@@ -1,6 +1,6 @@
 #!/bin/bash
 ip_address=/root/ipaddress
-if [[ -f $ip_address ]]
+if [[ -f "$ip_address" ]]
 then
 echo ip адрес не найден!
 sleep infinity
