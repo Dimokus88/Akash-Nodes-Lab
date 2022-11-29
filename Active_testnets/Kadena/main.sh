@@ -1,9 +1,9 @@
 #!/bin/bash
 if [[ -n $IP ]]
 then
-apt install runit -y
+apt-get install runit -y
 runsvdir -P /etc/service &
-
+sleep 5
 mkdir -p /root/kadena/log
 cat > /root/kadena/run <<EOF 
 #!/bin/bash
