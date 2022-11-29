@@ -1,7 +1,7 @@
 #!/bin/bash
 if [[ -n $IP ]]
 then
-/chainweb/chainweb-node --p2p-hostname $IP
+/chainweb/chainweb-node --p2p-hostname `echo $IP`
 else
 echo ip адрес не найден!
 echo Укажите во вкладке UPDATE выданный провайдером IP адрес указанный во вкладке lease и обновите деплоймент!
