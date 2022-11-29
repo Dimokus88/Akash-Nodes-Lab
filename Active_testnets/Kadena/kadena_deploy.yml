@@ -1,62 +1,62 @@
 ---
 version: "2.0"
 endpoints:
- dimokus_kadena:
+ <your_endpoint_name>:
    kind: ip
 services:
   node:
     image: ghcr.io/kadena-io/chainweb-node/ubuntu:latest
+    env:
+      - "IP="
     command:
       - "bash"
       - "-c"
     args:
-      - 'apt-get update && apt-get upgrade -y; apt install ssh wget tar -y;
-      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config; (echo your_pass_to_ssh; echo your_pass_to_ssh) | passwd root && service ssh restart; sleep infinity'
+      - 'apt-get update && apt-get upgrade -y;
+         apt install runit curl -y;
+         curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Kadena/main.sh | bash'
     expose:
-      - port: 22
-        as: 22
-        to:
-          - global: true
       - port: 80
         as: 80
         to:
           - global: true
-            ip: dimokus_kadena
+
       - port: 443
         as: 443
         to:
           - global: true
-            ip: dimokus_kadena
+            ip: <your_endpoint_name>
       - port: 1789
         as: 1789
         to:
           - global: true
-            ip: dimokus_kadena
+            ip: <your_endpoint_name>
     params:
       storage:
         data:
-          mount: /mnt/data/
+          mount: /root/
 profiles:
   compute:
     node:
       resources:
         cpu:
-          units: 6.0
+          units: 5.0
         memory:
           size: 8Gi
         storage:
-          - size: 50Gi
+          - size: 2Gi
           - name: data
-            size: 200Gi
+            size: 240Gi
             attributes:
               persistent: true
               class: beta3
+
   placement:
     akash:
       pricing:
         node:
           denom: uakt
-          amount: 10000000
+          amount: 10000
 deployment:
   node:
     akash:
