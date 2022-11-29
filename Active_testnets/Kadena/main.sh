@@ -21,6 +21,9 @@ chmod +x /root/kadena/log/run
 ln -s /root/kadena /etc/service
 sleep 2
 ln -s /var/log/kadena/current /log
+sleep 1
+tail -f /log
+sleep infinity
 else
 echo ip адрес не найден!
 echo Укажите во вкладке UPDATE выданный провайдером IP адрес указанный во вкладке lease и обновите деплоймент!
