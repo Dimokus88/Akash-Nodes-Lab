@@ -1,0 +1,64 @@
+---
+version: "2.0"
+endpoints:
+ dimokus_kadena:
+   kind: ip
+services:
+  node:
+    image: ghcr.io/kadena-io/chainweb-node/ubuntu:latest
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'apt-get update && apt-get upgrade -y; apt install ssh wget tar -y;
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config; (echo your_pass_to_ssh; echo your_pass_to_ssh) | passwd root && service ssh restart; sleep infinity'
+    expose:
+      - port: 22
+        as: 22
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+            ip: dimokus_kadena
+      - port: 443
+        as: 443
+        to:
+          - global: true
+            ip: dimokus_kadena
+      - port: 1789
+        as: 1789
+        to:
+          - global: true
+            ip: dimokus_kadena
+    params:
+      storage:
+        data:
+          mount: /mnt/data/
+profiles:
+  compute:
+    node:
+      resources:
+        cpu:
+          units: 6.0
+        memory:
+          size: 8Gi
+        storage:
+          - size: 50Gi
+          - name: data
+            size: 200Gi
+            attributes:
+              persistent: true
+              class: beta3
+  placement:
+    akash:
+      pricing:
+        node:
+          denom: uakt
+          amount: 10000000
+deployment:
+  node:
+    akash:
+      profile: node
+      count: 1
