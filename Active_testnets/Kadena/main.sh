@@ -24,6 +24,18 @@ sleep 1
 tail -f /log
 sleep infinity
 else
+echo
+echo IP address not found!
+echo Specify in the UPDATE tab the IP address given by the provider and specified in the lease tab and update the deployment!
+echo Example:
+echo ==================================
+echo services:
+echo ---node:
+echo -----image: kadena/chainweb-node
+echo ------env:
+echo ------ - "IP=123.123.123.123"
+echo ==================================echo
+echo
 echo ip адрес не найден!
 echo Укажите во вкладке UPDATE выданный провайдером IP адрес указанный во вкладке lease и обновите деплоймент!
 echo Пример:
