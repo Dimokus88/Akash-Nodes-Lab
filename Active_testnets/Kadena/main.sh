@@ -1,11 +1,7 @@
 #!/bin/bash
 if [[ -n $IP ]]
 then
-runsvdir -P /etc/service &
-apt-get update && apt-get upgrade -y
-apt install runit -y
-
-sleep infinity
+/chainweb/chainweb-node --p2p-hostname $IP
 else
 echo ip адрес не найден!
 echo Укажите во вкладке UPDATE выданный провайдером IP адрес указанный во вкладке lease и обновите деплоймент!
