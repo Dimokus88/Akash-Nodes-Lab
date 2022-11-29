@@ -11,13 +11,13 @@ echo ip адрес не найден!
 echo Укажите во вкладке UPDATE выданный провайдером IP адрес указанный во вкладке lease и обновите деплоймент!
 echo Пример:
 echo ==================================
-echo =  ...                           =
-echo = services:                      =
-echo =  node:                         =
-echo =    image: kadena/chainweb-node =
-echo =    env:                        =
-echo =      - "IP=123.123.123.123"    =
-echo =  ...                           =
+echo =  ..."                         "=
+echo = services:"                    "=
+echo =  node:"                       "=
+echo = " "image: kadena/chainweb-node =
+echo = " "env:                        =
+echo = "   "- "IP=123.123.123.123""  "=
+echo =  ..."                         "=
 echo ==================================
 sleep infinity
 fi
