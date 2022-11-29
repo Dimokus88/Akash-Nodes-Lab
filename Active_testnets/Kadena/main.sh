@@ -16,7 +16,7 @@ echo = services:                      =
 echo =  node:                         =
 echo =    image: kadena/chainweb-node =
 echo =    env:                        =
-echo =      - "IP=123.123.123.123     =
+echo =      - "IP=123.123.123.123"    =
 echo =  ...                           =
 echo ==================================
 sleep infinity
