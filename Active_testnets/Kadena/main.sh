@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -e /root/ipaddress ]
+if [[ -n $IP ]]
 then
 #runsvdir -P /etc/service &
 #apt-get update && apt-get upgrade -y
@@ -7,7 +7,6 @@ then
 echo =========== ip адрес найден =============
 sleep infinity
 else
-
 echo ip адрес не найден!
 sleep infinity
 fi
