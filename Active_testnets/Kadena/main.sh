@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -e /root/ipaddress ]
+if [ ! -e /root/ipaddress ]
 then
 #runsvdir -P /etc/service &
 #apt-get update && apt-get upgrade -y
