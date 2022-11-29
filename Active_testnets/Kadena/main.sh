@@ -1,9 +1,6 @@
 #!/bin/bash
 if [[ -n $IP ]]
 then
-apt-get update
-apt-get upgrade -y
-apt-get install runit -y
 runsvdir -P /etc/service &
 sleep 5
 mkdir -p /root/kadena/log
