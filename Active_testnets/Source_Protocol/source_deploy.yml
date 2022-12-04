@@ -21,7 +21,7 @@ services:
       - "MONIKER=" # Node name. Use "Akash" in moniker(for example:Dimokus_Akash) to help develop the project! Имя ноды. Используйте в моникере "Akash"(например:Dimokus_Akash) что бы помочь в развитии проекта!
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/Source-Protocol-Cosmos/source.git"
-      - "SNAP_RPC=https://source.rpc.bccnodes.com:443"
+      - "SNAP_RPC=http://rpc.source.ppnv.space:22657"
     command:
       - "bash"
       - "-c"
