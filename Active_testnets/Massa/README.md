@@ -30,7 +30,7 @@ ___
 
 ### Massa node for deployment on Akash Network
 
-* If you already have a wallet - go to paragraph ["Request tokens in a faucet"](https://github.com/Dimokus88/Massa/blob/main/README.md#request-tokens-in-a-faucet).
+* If you already have a wallet - go to paragraph ["Request tokens in a faucet"](https://github.com/Dimokus88/Akash-Nodes-Lab/tree/main/Active_testnets/Massa#request-tokens-in-a-faucet).
 
 ## Create wallet
 * Go to https://massa.net/testnet/wallet and generate a wallet by clicking "Generate" (save the private key from the "Add"). Click "Add".
