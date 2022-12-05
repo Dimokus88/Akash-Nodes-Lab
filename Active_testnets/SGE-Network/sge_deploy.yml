@@ -21,7 +21,7 @@ services:
       - "MONIKER=Akash" # Node name.Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/sge-network/sge"
-      - "SNAP_RPC=http://sge.rpc.t.stavr.tech:1157/"
+      - "SNAP_RPC=http://rpc.sge.ppnv.space:29657"
     command:
       - "bash"
       - "-c"
