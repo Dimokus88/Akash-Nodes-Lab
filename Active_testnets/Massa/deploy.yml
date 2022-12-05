@@ -42,7 +42,7 @@ services:
       - "bash"
       - "-c"
     args:
-      - 'apt-get update ; apt-get upgrade -y ; apt-get install -y  curl ; curl -s  https://raw.githubusercontent.com/Dimokus88/Massa/main/massa.sh  | bash ; sleep infinity '
+      - 'apt-get update ; apt-get upgrade -y ; apt-get install -y  curl ; curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Massa/main.sh  | bash ; sleep infinity '
 
 profiles:
   compute:
