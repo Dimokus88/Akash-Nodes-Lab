@@ -78,7 +78,7 @@ ___
 
 # Нода проекта Massa для развертки на Akash Network
 
-* Если у вас уже есть кошелек - переходите к пункту ["Запрос токенов в кране"](https://github.com/Dimokus88/Massa/blob/main/README.md#%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81-%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D0%BE%D0%B2-%D0%B2-%D0%BA%D1%80%D0%B0%D0%BD%D0%B5).
+* Если у вас уже есть кошелек - переходите к пункту ["Запрос токенов в кране"](https://github.com/Dimokus88/Akash-Nodes-Lab/tree/main/Active_testnets/Massa#%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81-%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D0%BE%D0%B2-%D0%B2-%D0%BA%D1%80%D0%B0%D0%BD%D0%B5).
 
 ## Создание кошелька
 * Идем по адресу https://massa.net/testnet/wallet и генерируем кошелек нажимая Generate (сохраняем приватный ключ из поля Add). Нажимаем кнопку Add.
