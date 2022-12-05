@@ -1,5 +1,5 @@
 # Generate Ethereum 2.0 validator keys
-1. Go to the releases page and copy the [current version] link(https://github.com/ethereum/staking-deposit-cli/releases).
+1. Go to the releases page and copy the [current version](https://github.com/ethereum/staking-deposit-cli/releases) link.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/203358990-13b99c9f-1c02-4cd1-897f-39652d6861a6.png" width=70% </p>
   
