@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update && apt upgrade -y
-apt install sudo nano clang make tmate-y
+apt install sudo nano clang make tmate -y
 runsvdir -P /etc/service &
 curl "https://sh.rustup.rs" -sSf | sh -s -- -y
 source $HOME/.cargo/env
