@@ -1,0 +1,58 @@
+##############################
+# Validator node on Akash Network
+#
+# Guide for deploy node https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/README.md
+# Site project: https://www.aleo.org/
+# Discord or Telegram project: https://discord.gg/aleohq
+# Twitter: https://twitter.com/AleoHQ
+# Explorer: https://www.aleo.network/
+##############################
+# Akash Discord: https://discord.gg/ybKMsYYZkx
+# Akash Telegram EN: https://t.me/AkashNW
+# Akash Telegram RU: https://t.me/akash_ru
+##############################
+---
+version: "2.0"
+
+services:
+  aleo:
+    image: dimokus88/ubuntu:1.3
+    env:
+      - "PRIVAT_CODE=" #Encode base64 your privat key. If you do not have an Aleo account, comment out this line, a new account will be created during the deployment process.
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - "curl https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Aleo/main.sh | bash"      
+    expose:
+      - port: 4133
+        as: 4133
+        to:
+          - global: true
+      - port: 3033
+        as: 3033
+        to:
+          - global: true
+
+profiles:
+  compute:
+    aleo:
+      resources:
+        cpu:
+          units: 16.0 #minimum requirements
+        memory:
+          size: 16Gi #minimum requirements
+        storage:
+          size: 150Gi #minimum requirements
+
+  placement:
+    akash: 
+      pricing:
+        aleo:
+          denom: uakt
+          amount: 10000
+deployment:
+  aleo:
+    akash:
+      profile: aleo
+      count: 1 
