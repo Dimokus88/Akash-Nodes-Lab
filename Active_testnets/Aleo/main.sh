@@ -24,7 +24,7 @@ chmod +x /root/client/log/run
 ln -s /root/client /etc/service
 #=================
 echo == Client is running ==
-echo == LOG: tail-f /var/log/client/current ==
+echo == LOG: tail -f /var/log/client/current ==
 sleep 5
 echo === Instal prover...===
 sleep 1m
@@ -45,6 +45,6 @@ chmod +x /root/prover/log/run
 ln -s /root/prover /etc/service
 #=================
 echo == Prover is running ==
-echo == LOG: tail-f /var/log/prover/current ==
+echo == LOG: tail -f /var/log/prover/current ==
 tmate -F
 sleep infinity
