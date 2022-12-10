@@ -6,7 +6,13 @@ git clone https://github.com/AleoHQ/snarkOS.git --depth 1 && cd snarkOS
 apt-get install build-essential curl clang gcc libssl-dev llvm make pkg-config tmux xz-utils tmate -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source $HOME/.cargo/env
 cargo install --path .
-
+if [[ -z "$PRIVAT_CODE" ]]
+then
+echo == Account not found! ==
+echo === Save privat key! ===
+snarkos account new
+sleep infinity
+fi
 #=====client======
 mkdir -p /root/client/log
 cat > /root/client/run <<EOF 
