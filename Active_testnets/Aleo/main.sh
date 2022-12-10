@@ -9,7 +9,7 @@ cargo install --path .
 if [[ -z "$PRIVAT_CODE" ]]
 then
 echo == Account not found! ==
-echo === Genereta new account! ==
+echo === Generate new account! ==
 echo === Save privat key! ===
 snarkos account new
 echo === NEXT ===
