@@ -9,8 +9,17 @@ cargo install --path .
 if [[ -z "$PRIVAT_CODE" ]]
 then
 echo == Account not found! ==
+echo === Genereta new account! ==
 echo === Save privat key! ===
 snarkos account new
+echo === NEXT ===
+echo ++ 1. Encode the private key with base64 ++
+echo ++ 2. Uncomment the line with the PRIVAT_CODE variable by removing the "\#" symbol ++
+echo ++ 3. Paste the value to the PRIVAT_CODE variable after the "=" sign ++
+echo ++ For example: ++
+echo    env:
+echo      - "PRIVAT_CODE=QVByaXZhdGVLZXkxemtwNzN5jd1dTg4TFlCS2gyTlM2QkJ2eEY2bVc"
+echo ++++++++++++++++++
 sleep infinity
 fi
 #=====client======
