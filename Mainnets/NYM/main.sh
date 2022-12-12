@@ -14,7 +14,6 @@ git reset --hard
 git pull
 git checkout release/$VERSION
 cargo build --release
-PATH=$PATH:/nym/target/release
 echo 'export PATH='$PATH:/nym/target/release >> /root/.bashrc
 source /root/.bashrc
 
