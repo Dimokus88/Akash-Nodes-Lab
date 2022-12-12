@@ -1,6 +1,8 @@
 ---
 version: "2.0"
-
+endpoints:
+ nym_account:
+   kind: ip
 services:
   app:
     image: dimokus88/ubuntu:1.3
@@ -24,24 +26,27 @@ services:
         as: 1790
         to:
           - global: true
+            ip: "nym_account"
       - port: 1789
         as: 1789
         to:
           - global: true
+            ip: "nym_account"
       - port: 8000
         as: 8000
         to:
-          - global: true      
+          - global: true     
+            ip: "nym_account"
 profiles:
   compute:
     app:
       resources:
         cpu:
-          units: 3.0
+          units: 2.0
         memory:
-          size: 5Gi
+          size: 2Gi
         storage:
-          size: 50Gi
+          size: 10Gi
 
          
   placement:
