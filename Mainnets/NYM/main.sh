@@ -17,7 +17,7 @@ cargo build --release
 echo 'export PATH='$PATH:/nym/target/release >> /root/.bashrc
 echo 'export KEYS='${KEYS} >> /root/.bashrc
 source /root/.bashrc
-
+sed -i.bak -e "s|^Defaults	secure_path=.*|Defaults	secure_path=\"$PATH\"|;" /etc/sudoers
 
 if [[ -n $KEYS ]]
 then
