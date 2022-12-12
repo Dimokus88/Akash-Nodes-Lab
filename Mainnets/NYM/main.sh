@@ -41,9 +41,9 @@ cat > /var/www/html/index.html <<EOF
 EOF
 sleep 2
 echo ===============================================================================
-echo ========= Go to Uri link (LEASE tab) and save all key and nym_backup! =========
+echo ========= Go to Uri link \(LEASE tab\) and save all key and nym_backup! =========
 echo ===============================================================================
-echo == Encode nym_backup.tar to BASE64, and add to enveriment KEY (deploy file). ==
+echo == Encode nym_backup.tar to BASE64, and add to enveriment KEY \(deploy file\). ==
 echo For example:
 echo     env:
 echo      - "KEY=DQpjYXQgPiAvdmFyL3d3dy9odG1sL2luw0L3N0cmljdC5kdGQiP...................Q+DQogIDxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1s"
