@@ -23,7 +23,7 @@ services:
       - "MONIKER=Akash" # Node name. Use "Akash" in moniker(for example:Dimokus_Akash) to help develop the project! Имя ноды. Используйте в моникере "Akash"(например:Dimokus_Akash) что бы помочь в развитии проекта!
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=gitopia://Gitopia/gitopia"
-      - "SNAP_RPC=http://rpc.gitopia.ppnv.space:2865"
+      - "SNAP_RPC=http://rpc.gitopia.ppnv.space:28657"
       - "BINARY_VERSION=64e4712aeae3c723346a365d67cf1dd3e91cc50c"
     command:
       - "bash"
