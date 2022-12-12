@@ -18,8 +18,10 @@ echo 'export PATH='$PATH:/nym/target/release >> /root/.bashrc
 source /root/.bashrc
 
 
-if [[ -z $KEYS ]]
+if [[ -n $KEYS ]]
 then
+sleep infinity
+else
 service nginx start
 sleep 2
 nym-mixnode init --id "$MONIKER" --host $(curl ifconfig.me) --wallet-address $NYM_ADDRESS > /root/init
@@ -48,7 +50,5 @@ echo For example:
 echo     env:
 echo      - "KEY=DQpjYXQgPiAvdmFyL3d3dy9odG1sL2luw0L3N0cmljdC5kdGQiP...................Q+DQogIDxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1s"
 echo ==================================================================================
-sleep infinity
-else
 sleep infinity
 fi
