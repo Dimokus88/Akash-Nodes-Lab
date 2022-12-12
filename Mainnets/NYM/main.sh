@@ -21,8 +21,11 @@ source /root/.bashrc
 if [[ -z $KEYS ]]
 then
 service nginx start
+sleep 2
 nym-mixnode init --id "$MONIKER" --host $(curl ifconfig.me) --wallet-address $NYM_ADDRESS > /root/init
+sleep 2
 tar -cvf /var/www/html/nym_backup.tar /root/.nym/mixnodes/'$MONIKER'
+sleep 2
 cat > /var/www/html/index.html <<EOF
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -36,10 +39,11 @@ cat > /var/www/html/index.html <<EOF
  </body>
 </html>
 EOF
-echo ==================================================================================
-echo ========= Go to Uri link (in LEASE tab) and save all key and nym_backup! =========
-echo ==================================================================================
-echo == Encode nym_backup.tar to BASE64, and add to enveriment KEY (in deploy file). ==
+sleep 2
+echo ===============================================================================
+echo ========= Go to Uri link (LEASE tab) and save all key and nym_backup! =========
+echo ===============================================================================
+echo == Encode nym_backup.tar to BASE64, and add to enveriment KEY (deploy file). ==
 echo For example:
 echo     env:
 echo      - "KEY=DQpjYXQgPiAvdmFyL3d3dy9odG1sL2luw0L3N0cmljdC5kdGQiP...................Q+DQogIDxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1s"
