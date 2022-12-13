@@ -25,7 +25,7 @@ service nginx start
 sleep 2
 nym-mixnode init --id "$MONIKER" --host $(curl ifconfig.me) --wallet-address $NYM_ADDRESS > /root/init
 sleep 2
-tar -cvf /var/www/html/nym_backup.tar /root/.nym/mixnodes/'$MONIKER'
+tar -cvf /var/www/html/nym_backup.tar /root/.nym/mixnodes/'$MONIKER'/
 sleep 2
 cat > /var/www/html/index.html <<EOF
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
