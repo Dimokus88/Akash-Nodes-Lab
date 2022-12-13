@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 (echo $MY_ROOT_PASSWORD; echo $MY_ROOT_PASSWORD) | passwd root
+echo 'export MONIKER='${MONIKER} >> /root/.bashrc
 service ssh start
 apt update -y
 apt install pkg-config build-essential libssl-dev curl jq git nginx -y
