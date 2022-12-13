@@ -32,19 +32,20 @@ cat > /var/www/html/index.html <<EOF
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="refresh" content="5;./nym_backup.tar">
   <title>NYM on Akash Network</title>
  </head>
  <body>
-`cat /root/init`
-<a href="./nym_backup.tar">nym_backup</a>
  </body>
 </html>
 EOF
 sleep 2
-echo ===============================================================================
-echo ========= Go to Uri link \(LEASE tab\) and save all key and nym_backup! =========
-echo ===============================================================================
+echo =================================================================================
+echo ============= Go to Uri link \(LEASE tab\) and download nym_backup! =============
+echo =================================================================================
+echo ==================== Saved mixnet identity and sphinx keypairs ==================
+cat /root/init
+echo =================================================================================
 echo == Encode nym_backup.tar to BASE64, and add to enveriment KEY \(deploy file\). ==
 echo For example:
 echo     env:
