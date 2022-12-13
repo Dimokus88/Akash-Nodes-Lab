@@ -14,10 +14,9 @@ git reset --hard
 git pull
 git checkout release/$VERSION
 cargo build --release
-echo 'export PATH='$PATH:/nym/target/release >> /root/.bashrc
-echo 'export KEYS='${KEYS} >> /root/.bashrc
-sed -i.bak -e "s|^Defaults	secure_path=.*|Defaults	secure_path=\"$PATH\"|;" /etc/sudoers
-source /root/.bashrc
+sleep 2
+cp -r /nym/target/release/. /usr/local/bin/
+
 if [[ -n $KEYS ]]
 then
 sleep infinity
