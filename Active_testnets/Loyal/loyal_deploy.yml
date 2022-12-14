@@ -22,6 +22,7 @@ services:
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/LoyalLabs/loyal"
       - "SNAP_RPC=https://main-rpc.joinloyal.io:443"
+      - "PEER=ecd750c265d8f0854ab8dc99a1d982ad5e386715@142.132.201.130:26656,6ba67d63da4123161c1f733cdce9a46f6819b72c@109.123.243.66:2566,af4add23aaca23dba019a125705e2ee6cc24bc35@50.21.186.177:2566"
     command:
       - "bash"
       - "-c"
