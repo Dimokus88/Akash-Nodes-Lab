@@ -2,10 +2,10 @@
 # Validator node on Akash Network
 #
 # Guide for deploy node https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Guide/README.md
-# Site project: https://nolus.io/
-# Discord or Telegram project: https://discord.gg/nolus-protocol
-# Twitter: https://twitter.com/NolusProtocol
-# Explorer: https://nolus.explorers.guru/
+# Site project: 
+# Discord or Telegram project: 
+# Twitter: 
+# Explorer: 
 ##############################
 # Akash Discord: https://discord.gg/ybKMsYYZkx
 # Akash Telegram EN: https://t.me/AkashNW
@@ -21,7 +21,11 @@ services:
       - "MONIKER=Akash" # Node name.Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/Nolus-Protocol/nolus-core"
-      - "SNAP_RPC=https://rpc-t.nolus.nodestake.top:443"
+      - "DENOM=unls"
+      - "CHAIN=nolus-rila"
+      - "GENESIS=https://raw.githubusercontent.com/Nolus-Protocol/nolus-networks/main/testnet/nolus-rila/genesis.json"
+      #- "BINARY_VERSION=Nolus v0.1.39"
+      - "PEER=56cee116ac477689df3b4d86cea5e49cfb450dda@54.246.232.38:26656,56f14005119e17ffb4ef3091886e6f7efd375bfd@34.241.107.0:26656,7f26067679b4323496319fda007a279b52387d77@63.35.222.83:26656,7f4a1876560d807bb049b2e0d0aa4c60cc83aa0a@63.32.88.49:26656,3889ba7efc588b6ec6bdef55a7295f3dd559ebd7@3.249.209.26:26656,de7b54f988a5d086656dcb588f079eb7367f6033@34.244.137.169:26656"
     command:
       - "bash"
       - "-c"
