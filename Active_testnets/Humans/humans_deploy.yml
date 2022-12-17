@@ -22,11 +22,12 @@ services:
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/humansdotai/humans"
       - "SNAP_RPC=http://rpc.humans.ppnv.space:30657"
+      - "BINARY_VERSION=v1.0.0"
     command:
       - "bash"
       - "-c"
     args:
-      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/universe/main/node.sh | bash '
+      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Humans/main.sh | bash '
     expose:
       - port: 80
         as: 80
