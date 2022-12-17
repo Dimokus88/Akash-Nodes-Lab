@@ -191,20 +191,20 @@ sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" /root/$BINARY/config/config.
  sed -i 's/skip_timeout_commit =.*/skip_timeout_commit = false/g' /root/$BINARY/config/config.toml
 #-----------------------------------------------------------
 # ====================RPC======================
-if [[ -n ${SNAP_RPC} ]]
-then
-	RPC=`echo $SNAP_RPC,$SNAP_RPC,$RPC`
-	echo $RPC
-	LATEST_HEIGHT=`curl -s $SNAP_RPC/block | jq -r .result.block.header.height`; \
-	BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
-	BLOCK_HEIGHT=`echo $BLOCK_HEIGHT | sed "s/...$/000/"`; \
-	TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
-	echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
-	sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-	s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$RPC\"| ; \
-	s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-	s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /root/$BINARY/config/config.toml
-fi
+#if [[ -n ${SNAP_RPC} ]]
+#then
+#	RPC=`echo $SNAP_RPC,$SNAP_RPC,$RPC`
+#	echo $RPC
+#	LATEST_HEIGHT=`curl -s $SNAP_RPC/block | jq -r .result.block.header.height`; \
+#	BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
+#	BLOCK_HEIGHT=`echo $BLOCK_HEIGHT | sed "s/...$/000/"`; \
+#	TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+#	echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
+#	sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
+#	s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$RPC\"| ; \
+#	s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
+#	s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /root/$BINARY/config/config.toml
+#fi
 #================================================
 if [[ -n ${VALIDATOR_KEY_JSON_BASE64} ]]
 then
