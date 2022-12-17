@@ -52,7 +52,7 @@ profiles:
         cpu:
           units: 4.0
         memory:
-          size: 6Gi
+          size: 8Gi
         storage:
           size: 200Gi
   placement:
