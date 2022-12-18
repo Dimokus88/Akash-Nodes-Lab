@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update && apt upgrade -y
-apt install sudo nano clang make tmate wget curl tar ssh runit -y
+apt install sudo nano clang make tmate wget tar ssh runit -y
 apt install -y git binutils-dev libcurl4-openssl-dev zlib1g-dev libdw-dev libiberty-dev cmake gcc g++ python protobuf-compiler libssl-dev pkg-config llvm awscli
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 (echo $PASS; echo $PASS) | passwd root
