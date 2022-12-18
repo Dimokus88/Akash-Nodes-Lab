@@ -13,5 +13,5 @@ source $HOME/.cargo/env
 git clone https://github.com/near/nearcore && cd nearcore
 git fetch origin --tags
 git checkout tags/$VERSION_NEARCORE -b mynode
-make release
+make neard
 ./target/release/neard --home ~/.near init --chain-id $CHAIN --download-genesis --download-config
