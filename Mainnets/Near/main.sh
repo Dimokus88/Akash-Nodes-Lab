@@ -1,6 +1,4 @@
 #!/bin/bash
-TZ=Europe/Kiev
-ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 (echo $PASS; echo $PASS) | passwd root
 service ssh start
