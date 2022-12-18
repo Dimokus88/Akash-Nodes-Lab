@@ -25,8 +25,6 @@ cargo build --package neard --features nightly_protocol,nightly_protocol_feature
 sleep infinity
 fi
 ./target/release/neard --home ~/.near init --chain-id $CHAIN --download-genesis --download-config --boot-nodes $BOOT_NODES
-rm ~/.near/config.json
-wget -O ~/.near/config.json https://s3-us-west-1.amazonaws.com/build.nearprotocol.com/nearcore-deploy/$CHAIN/config.json
 echo == Синхронизация заголовков ==
 sleep 10
 aws s3 --no-sign-request cp s3://near-protocol-public/backups/$CHAIN/rpc/latest .
