@@ -11,7 +11,7 @@ echo == Клонирую и устанавливаю nearcore ===
 sleep 10
 git clone https://github.com/near/nearcore && cd nearcore
 git fetch origin --tags
-git checkout $VERSION_NEARCORE
+git checkout $VERSION_NEARCORE -b mynode
 make neard
 echo == сборка завершена ==
 sleep 10
