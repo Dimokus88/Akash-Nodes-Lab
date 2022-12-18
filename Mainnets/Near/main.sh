@@ -26,7 +26,6 @@ cargo build --package neard --features nightly_protocol,nightly_protocol_feature
 ./target/release/neard --home ~/.near run
 sleep infinity
 fi
-
 ./target/release/neard --home ~/.near init --chain-id $CHAIN --download-genesis --download-config --boot-nodes $BOOT_NODES
 rm ~/.near/config.json
 wget -O ~/.near/config.json https://s3-us-west-1.amazonaws.com/build.nearprotocol.com/nearcore-deploy/$CHAIN/config.json
