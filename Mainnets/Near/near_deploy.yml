@@ -1,0 +1,58 @@
+---
+version: "2.0"
+
+services:
+  app:
+    image: ubuntu:22.04
+    env:
+     - "PASS=" 
+     - "CHAIN=testnet"
+     - "VERSION_NEARCORE=tags/1.29.1"
+     - "BOOT_NODES=ed25519:4k9csx6zMiXy4waUvRMPTkEtAS2RFKLVScocR5HwN53P@34.73.25.182:24567,ed25519:4keFArc3M4SE1debUQWi3F1jiuFZSWThgVuA2Ja2p3Jv@34.94.158.10:24567,ed25519:D2t1KTLJuwKDhbcD9tMXcXaydMNykA99Cedz7SkJkdj2@35.234.138.23:24567,ed25519:CAzhtaUPrxCuwJoFzceebiThD9wBofzqqEMCiupZ4M3E@34.94.177.51:24567"
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'apt update && apt upgrade -y;
+      TZ=Europe/Kiev;
+      ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone;
+      apt install -y curl sudo nano clang make tmate wget tar ssh runit git binutils-dev libcurl4-openssl-dev zlib1g-dev libdw-dev libiberty-dev cmake gcc g++ python2 protobuf-compiler libssl-dev pkg-config llvm awscli cargo npm; 
+      curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Mainnets/Near/main.sh | bash '
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 22
+        as: 22
+        to:
+          - global: true
+      - port: 3030
+        as: 3030
+        to:
+          - global: true
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 16.0
+        memory:
+          size: 8Gi
+        storage:
+          size: 900Gi
+        
+        
+  placement:
+    akash: 
+      attributes:
+
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
