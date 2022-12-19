@@ -1,0 +1,56 @@
+---
+version: "2.0"
+
+services:
+  app:
+    image: ubuntu:latest 
+    env:
+      - "PASS="    
+    
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'apt-get update && apt-get upgrade -y ;
+        apt-get install -y  wget tar ssh ;
+        echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && (echo $PASS; echo $PASS) | passwd root ; 
+        service ssh start;
+        wget https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz;
+        tar xvf bitcoin-22.0-x86_64-linux-gnu.tar.gz;
+        install -m 0755 -o root -g root -t /usr/local/bin bitcoin-22.0/bin/*;
+        bitcoind;
+        sleep infinity'
+    
+    expose:
+      - port: 8333
+        as: 8333
+        to:
+          - global: true
+      - port: 22
+        as: 22
+        to:
+          - global: true 
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 2.0
+        memory:
+          size: 2Gi
+        storage:
+          size: 500Gi
+         
+  placement:
+    akash: 
+      attributes:
+            
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
