@@ -21,7 +21,7 @@ services:
       - "MONIKER=Powered_by_Akash" # Node name.Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/desmos-labs/desmos"
-      - "SNAP_RPC=https://rpc.mainnet.desmos.network:443"
+      - "SNAP_RPC=http://desmos.statesync.nodersteam.com:26657"
     command:
       - "bash"
       - "-c"
