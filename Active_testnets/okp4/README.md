@@ -35,7 +35,7 @@ ___
 # English version
 ### Deployment of the Okp4 node.
 
-Deploy [deploy.yml](https://github.com/Dimokus88/Okp4/blob/main/deploy.yml) **Okp4** nodes with **Cloudmos (Akashlytics)** ( [use instructions here](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md) ) by setting the values ​​in the corresponding `deploy.yml` variables:
+Deploy [deploy.yml](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Active_testnets/okp4/okp4_deploy.yml) **Okp4** nodes with **Cloudmos (Akashlytics)** ( [use instructions here](https://github.com/Dimokus88/guides/blob/main/Akashlytics/EN-guide.md) ) by setting the values ​​in the corresponding `deploy.yml` variables:
 - **MY_ROOT_PASSWORD** - your password for the `root` user.
 - **MONIKER**-node name.
 - **LINK_KEY**-link to direct download of `priv_validator_key.json`* file.
@@ -102,7 +102,7 @@ ___
 # Русская версия
 ### Развертка ноды Okp4.
 
-Разверните [deploy.yml](https://github.com/Dimokus88/Okp4/blob/main/deploy.yml) ноды **Okp4** с помощью **Cloudmos (Akashlytics)**  ([инструкция по использованию здесь](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md)) установив значения в соответствующих переменных  `deploy.yml`: 
+Разверните [deploy.yml](https://github.com/Dimokus88/Akash-Nodes-Lab/blob/main/Active_testnets/okp4/okp4_deploy.yml) ноды **Okp4** с помощью **Cloudmos (Akashlytics)**  ([инструкция по использованию здесь](https://github.com/Dimokus88/guides/blob/main/Akashlytics/RU-guide.md)) установив значения в соответствующих переменных  `deploy.yml`: 
 - **MY_ROOT_PASSWORD**-свой пароль для `root` пользователя
 - **MONIKER**-имя ноды  
 - **LINK_KEY**-ссылку на прямое скачивание файла `priv_validator_key.json`* 
