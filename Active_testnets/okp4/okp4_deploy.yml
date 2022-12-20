@@ -14,11 +14,6 @@ services:
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/okp4/okp4d.git"
       - "SNAP_RPC=http://okp4-testnet.nodejumper.io:29657"  
-      - "PEER=8cdeb85dada114c959c36bb59ce258c65ae3a09c@88.198.242.163:36656,bc648d1d8aef7f622d38f47ab8a0ecaee9791c46@54.36.109.62:26656,a49302f8999e5a953ebae431c4dde93479e17155@141.95.153.244:26656"
-      - "BINARY_VERSION=v3.0.0"
-# If the node is not syncing, connect via ssh and download the snapshot using the command below: 
-# Если нода не синхронизируется - подключитесь по ssh и скачайте снепшот с помощью команды ниже:
-# sudo curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/okp4/snap.sh | bash
     command:
       - "bash"
       - "-c"
