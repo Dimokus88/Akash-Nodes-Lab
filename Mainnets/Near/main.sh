@@ -48,3 +48,5 @@ EOF
 chmod +x /root/nearcore/run
 chmod +x /root/nearcore/log/run
 ln -s /root/nearcore /etc/service
+sleep 5
+tail -f /var/log/nearcore/current
