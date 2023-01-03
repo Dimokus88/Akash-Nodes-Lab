@@ -5,7 +5,7 @@ services:
   app:
     image: ubuntu:latest 
     env:
-      - "PASS="    
+      - "PASS=310888"    
     
     command:
       - "bash"
@@ -18,10 +18,14 @@ services:
         wget https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz;
         tar xvf bitcoin-22.0-x86_64-linux-gnu.tar.gz;
         install -m 0755 -o root -g root -t /usr/local/bin bitcoin-22.0/bin/*;
-        bitcoind;
+        bitcoind -port=8333;
         sleep infinity'
     
     expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
       - port: 8333
         as: 8333
         to:
@@ -29,7 +33,7 @@ services:
       - port: 22
         as: 22
         to:
-          - global: true 
+          - global: true
 profiles:
   compute:
     app:
@@ -39,7 +43,7 @@ profiles:
         memory:
           size: 2Gi
         storage:
-          size: 500Gi
+          size: 600Gi
          
   placement:
     akash: 
