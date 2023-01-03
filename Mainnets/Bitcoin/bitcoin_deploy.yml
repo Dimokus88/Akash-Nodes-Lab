@@ -5,7 +5,7 @@ services:
   app:
     image: ubuntu:latest 
     env:
-      - "PASS=310888"    
+      - "PASS="    
     
     command:
       - "bash"
