@@ -20,13 +20,13 @@ services:
       - "MY_ROOT_PASSWORD=" #Root password far a ssh connection. Пароль root для подключения по ssh.
       - "MONIKER=Akash" # Node name.Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
-      - "GITHUB_REPOSITORY=https://github.com/lavanet/lava"
+      - "BINARY_LINK=https://lava-binary-upgrades.s3.amazonaws.com/testnet/v0.4.0/lavad"
       - "SNAP_RPC=http://rpc.lava.ppnv.space:40657"
     command:
       - "bash"
       - "-c"
     args:
-      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/universe/main/node.sh | bash '
+      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Lava/mail.sh | bash '
     expose:
       - port: 80
         as: 80
