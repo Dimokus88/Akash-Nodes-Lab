@@ -1,11 +1,6 @@
 #!/bin/bash
 # By Dimokus (https://t.me/Dimokus)
 runsvdir -P /etc/service &
-wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
-rm -rf /usr/local/go && tar -C /usr/local -xzf ./go1.19.4.linux-amd64.tar.gz
-cp /usr/local/go/bin/go /usr/bin/  
-go version
-
 sleep 5
 # ++++++++++++ Установка удаленного доступа ++++++++++++++
 echo 'export MY_ROOT_PASSWORD='${MY_ROOT_PASSWORD} >> /root/.bashrc
@@ -38,9 +33,7 @@ else
   sleep 10
 fi
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 # ---------------- переменные ----------------------
-GIT_FOLDER=`basename $GITHUB_REPOSITORY | sed "s/.git//"`
 if [[ -n $SNAP_RPC ]]
 then 
 CHAIN=`curl -s "$SNAP_RPC"/status | jq -r .result.node_info.network`
@@ -63,16 +56,8 @@ source /root/.bashrc
 # --------------------------------------------------
 INSTALL (){
 #-----------СКАЧИВАНИЕ БИНАРНОГО ФАЙЛА------------
-wget -O /root/go/bin/ $BINARY_LINK 
-BINARY=`ls /root/go/bin`
-if [[ -z $BINARY ]]
-then
-BINARY=`ls /root/$GIT_FOLDER/build/`
-fi
-echo $BINARY
-echo 'export BINARY='${BINARY} >> /root/.bashrc
-chmod +x /root/go/bin/$BINARY
-cp /root/go/bin/$BINARY /usr/bin/$BINARY
+wget -O /usr/bin/ $BINARY_LINK 
+BINARY=lavad
 $BINARY version
 #-------------------------------------------------
 #=======ИНИЦИАЛИЗАЦИЯ БИНАРНОГО ФАЙЛА================
