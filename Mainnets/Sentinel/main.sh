@@ -72,8 +72,8 @@ git clone $GITHUB_REPOSITORY && cd $GIT_FOLDER
 sleep 5
 git checkout $BINARY_VERSION
 make clean && make && make build | bash
-FILE=`ls ./build |grep linux`
-cp ./build/$FILE /usr/bin/sentinel
+FILE=`ls /hub/build | grep linux`
+cp /hub/build/$FILE /usr/bin/sentinel
 chmod +x /usr/bin/sentinel
 BINARY=sentinel
 if [[ -z $BINARY ]]
