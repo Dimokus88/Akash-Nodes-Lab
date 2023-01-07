@@ -162,7 +162,7 @@ snapshot_interval="2000" && \
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" /root/$BINARY/config/app.toml
 #-----------------------------------------------------------
 # ====================RPC======================
-if [[ -n ${SNAP_RPC} && ${STATE_SYNC} == true ]]
+if [[ -n ${SNAP_RPC} ]] && [[ ${STATE_SYNC} == true ]]
 then
 	RPC=`echo $SNAP_RPC,$SNAP_RPC,$RPC`
 	echo $RPC
