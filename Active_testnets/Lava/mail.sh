@@ -56,9 +56,9 @@ source /root/.bashrc
 # --------------------------------------------------
 INSTALL (){
 #-----------СКАЧИВАНИЕ БИНАРНОГО ФАЙЛА------------
-wget $BINARY_LINK 
-chmod +x ./lavad
-cp ./lavad /usr/bin/
+wget -O /tmp/lavad $BINARY_LINK 
+chmod +x /tmp/lavad
+cp /tmp/lavad /usr/bin/lavad
 BINARY=lavad
 $BINARY version
 #-------------------------------------------------
