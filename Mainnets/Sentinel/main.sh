@@ -63,19 +63,10 @@ echo 'export GENESIS='${GENESIS} >> /root/.bashrc
 source /root/.bashrc
 # --------------------------------------------------
 INSTALL (){
-#-----------КОМПИЛЯЦИЯ БИНАРНОГО ФАЙЛА------------
-git clone $GITHUB_REPOSITORY && cd $GIT_FOLDER
-sleep 5
-git checkout $BINARY_VERSION
-make build
-FILE=`ls /hub/build | grep linux`
-cp /hub/build/$FILE /usr/bin/sentinel
+#-----------СКАЧИВАНИЕ БИНАРНОГО ФАЙЛА------------
+wget -O /usr/bin/sentinel $BINARY_LINK
 chmod +x /usr/bin/sentinel
 BINARY=sentinel
-if [[ -z $BINARY ]]
-then
-BINARY=`ls /root/$GIT_FOLDER/build/`
-fi
 echo $BINARY
 echo 'export BINARY='${BINARY} >> /root/.bashrc
 cp /root/$GIT_FOLDER/build/$BINARY /usr/bin/$BINARY
