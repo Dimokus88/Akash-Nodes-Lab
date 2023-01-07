@@ -61,6 +61,8 @@ wget -O /tmp/lavad $BINARY_LINK
 chmod +x /tmp/lavad
 cp /tmp/lavad /usr/bin/lavad
 BINARY=lavad
+echo 'export BINARY='${BINARY} >> /root/.bashrc
+source /root/.bashrc
 $BINARY version
 #-------------------------------------------------
 #=======ИНИЦИАЛИЗАЦИЯ БИНАРНОГО ФАЙЛА================
