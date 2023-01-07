@@ -4,9 +4,7 @@ runsvdir -P /etc/service &
 wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf ./go1.19.4.linux-amd64.tar.gz
 cp /usr/local/go/bin/go /usr/bin/  
-
 go version
-
 sleep 5
 # ++++++++++++ Установка удаленного доступа ++++++++++++++
 echo 'export MY_ROOT_PASSWORD='${MY_ROOT_PASSWORD} >> /root/.bashrc
@@ -69,8 +67,6 @@ chmod +x /usr/bin/sentinel
 BINARY=sentinel
 echo $BINARY
 echo 'export BINARY='${BINARY} >> /root/.bashrc
-cp /root/$GIT_FOLDER/build/$BINARY /usr/bin/$BINARY
-cp /root/go/bin/$BINARY /usr/bin/$BINARY
 $BINARY version
 #-------------------------------------------------
 #=======ИНИЦИАЛИЗАЦИЯ БИНАРНОГО ФАЙЛА================
