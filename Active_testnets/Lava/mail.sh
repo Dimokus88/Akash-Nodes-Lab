@@ -220,13 +220,13 @@ fi
 
 SNAPSHOT(){
 sv stop lavad
-cp $HOME/.lava/data/priv_validator_state.json $HOME/.lava/priv_validator_state.json.backup
-lavad tendermint unsafe-reset-all --home $HOME/.lava --keep-addr-book
+cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_state.json.backup
+lavad tendermint unsafe-reset-all --home /root/$BINARY --keep-addr-book
 
 SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/lava-testnet/ | egrep -o ">lava-testnet-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots1-testnet.nodejumper.io/lava-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.lava
+curl https://snapshots1-testnet.nodejumper.io/lava-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C /root/$BINARY
 
-mv $HOME/.lava/priv_validator_state.json.backup $HOME/.lava/data/priv_validator_state.json
+mv /root/$BINARY/priv_validator_state.json.backup /root/$BINARY/data/priv_validator_state.json
 sleep 5
 sv start lavad
 }
