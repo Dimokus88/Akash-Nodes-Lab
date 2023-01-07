@@ -1,6 +1,7 @@
 #!/bin/bash
 # By Dimokus (https://t.me/Dimokus)
 runsvdir -P /etc/service &
+apt install lz4 -y
 sleep 5
 # ++++++++++++ Установка удаленного доступа ++++++++++++++
 echo 'export MY_ROOT_PASSWORD='${MY_ROOT_PASSWORD} >> /root/.bashrc
@@ -216,6 +217,19 @@ else
     fi
 fi
 }
+
+SNAPSHOT(){
+sv stop lavad
+cp $HOME/.lava/data/priv_validator_state.json $HOME/.lava/priv_validator_state.json.backup
+lavad tendermint unsafe-reset-all --home $HOME/.lava --keep-addr-book
+
+SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/lava-testnet/ | egrep -o ">lava-testnet-1.*\.tar.lz4" | tr -d ">")
+curl https://snapshots1-testnet.nodejumper.io/lava-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.lava
+
+mv $HOME/.lava/priv_validator_state.json.backup $HOME/.lava/data/priv_validator_state.json
+sleep 5
+sv start lavad
+}
 RUN (){
 # +++++++++++ Защита от двойной подписи ++++++++++++
 if [[ -n ${SNAP_RPC} ]]
@@ -260,6 +274,8 @@ EOF
 chmod +x /root/$BINARY/log/run
 ln -s /root/$BINARY /etc/service
 ln -s /var/log/$BINARY/current /LOG
+sleep 5
+SNAPSHOT
 }
 #======================================================== КОНЕЦ БЛОКА ФУНКЦИЙ ====================================================
 
