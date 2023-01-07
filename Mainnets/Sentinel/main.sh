@@ -5,7 +5,7 @@ wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf ./go1.19.4.linux-amd64.tar.gz
 cp /usr/local/go/bin/go /usr/bin/  
 mkdir -p /usr/lib/go
-export GOROOT=/usr/lib/go
+export GOROOT=/root
 export GOPATH=${HOME}/go
 export GOBIN=${GOPATH}/bin
 export PATH=${PATH}:${GOROOT}/bin:${GOBIN}
