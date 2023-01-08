@@ -298,7 +298,7 @@ then
 sv stop cosmovisor
 cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_state.json.backup
 $BINARY tendermint unsafe-reset-all --home /root/$BINARY --keep-addr-book
-$BINARY -o - -L $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/$BINARY
+curl -o - -L $SNAPSHOT | lz4 -c -d - | tar -xf - -C /root/$BINARY
 mv /root/$BINARY/priv_validator_state.json.backup /root/$BINARY/data/priv_validator_state.json
 sv start cosmovisor
 fi
