@@ -72,7 +72,7 @@ sleep 5
 git checkout $BINARY_VERSION
 make build
 make install
-BINARY=`ls /root/go/bin`
+BINARY=akash
 if [[ -z $BINARY ]]
 then
 BINARY=`ls /root/$GIT_FOLDER/build/`
