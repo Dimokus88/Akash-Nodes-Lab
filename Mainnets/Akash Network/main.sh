@@ -1,6 +1,7 @@
 #!/bin/bash
 # By Dimokus (https://t.me/Dimokus)
 runsvdir -P /etc/service &
+apt install lz4 -y
 wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf ./go1.19.4.linux-amd64.tar.gz
 cp /usr/local/go/bin/go /usr/bin/  
@@ -296,7 +297,7 @@ if [[ -n $SNAPSHOT ]]
 then
 sv stop cosmovisor
 cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_state.json.backup
-lavad tendermint unsafe-reset-all --home /root/.lava --keep-addr-book
+$BINARY tendermint unsafe-reset-all --home /root/$BINARY --keep-addr-book
 $BINARY -o - -L $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/$BINARY
 mv /root/$BINARY/priv_validator_state.json.backup /root/$BINARY/data/priv_validator_state.json
 sv start cosmovisor
