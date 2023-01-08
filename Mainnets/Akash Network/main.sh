@@ -295,6 +295,7 @@ ln -s /root/cosmovisor /etc/service
 
 if [[ -n $SNAPSHOT ]]
 then
+sleep 5
 sv stop cosmovisor
 cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_state.json.backup
 $BINARY tendermint unsafe-reset-all --home /root/$BINARY --keep-addr-book
