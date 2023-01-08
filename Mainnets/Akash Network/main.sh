@@ -278,7 +278,7 @@ export DAEMON_NAME=$BINARY
 export DAEMON_ALLOW_DOWNLOAD_BINARIES=false
 export DAEMON_RESTART_AFTER_UPGRADE=true
 export UNSAFE_SKIP_BACKUP=true
-exec /root/go/bin/cosmovisor start
+exec /root/go/bin/cosmovisor start --home /root/$BINARY
 EOF
 chmod +x /root/cosmovisor/run
 LOG=/var/log/cosmovisor
@@ -289,11 +289,18 @@ mkdir $LOG
 exec svlogd -tt $LOG
 EOF
 chmod +x /root/cosmovisor/log/run
+
+ln -s /root/cosmovisor /etc/service
+
 if [[ -n $SNAPSHOT ]]
 then
-curl -o - -L $SNAPSHOT | lz4 -c -d - | tar -x -C /root/$BINARY/
+sv stop cosmovisor
+cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_state.json.backup
+lavad tendermint unsafe-reset-all --home /root/.lava --keep-addr-book
+$BINARY -o - -L $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/$BINARY
+mv /root/$BINARY/priv_validator_state.json.backup /root/$BINARY/data/priv_validator_state.json
+sv start cosmovisor
 fi
-ln -s /root/cosmovisor /etc/service
 }
 #======================================================== КОНЕЦ БЛОКА ФУНКЦИЙ ====================================================
 
