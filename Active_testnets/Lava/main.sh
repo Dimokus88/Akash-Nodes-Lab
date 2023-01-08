@@ -67,7 +67,7 @@ $BINARY version
 #-------------------------------------------------
 #=======ИНИЦИАЛИЗАЦИЯ БИНАРНОГО ФАЙЛА================
 echo =INIT=
-$BINARY init "$MONIKER" --chain-id $CHAIN --home /root/$BINARY
+$BINARY init "$MONIKER" --chain-id $CHAIN
 sleep 5
 $BINARY config chain-id $CHAIN
 $BINARY config keyring-backend os
@@ -75,8 +75,8 @@ $BINARY config keyring-backend os
 #===========ДОБАВЛЕНИЕ GENESIS.JSON===============
 if [[ -n ${SNAP_RPC} ]]
 then 
-	rm /root/$BINARY/config/genesis.json
-	curl -s "$SNAP_RPC"/genesis | jq .result.genesis >> /root/$BINARY/config/genesis.json
+	rm /root/.lava/config/genesis.json
+	curl -s "$SNAP_RPC"/genesis | jq .result.genesis >> /root/.lava/config/genesis.json
 	if [[ -z $DENOM ]]
 	then
 	DENOM=`curl -s "$SNAP_RPC"/genesis | grep denom -m 1 | tr -d \"\, | sed "s/denom://" | tr -d \ `
@@ -87,12 +87,12 @@ if [[ -n ${GENESIS} ]]
 then	
 	if echo $GENESIS | grep tar
 	then
-		rm /root/$BINARY/config/genesis.json
+		rm /root/.lava/config/genesis.json
 		mkdir /tmp/genesis/
 		wget -O /tmp/genesis.tar.gz $GENESIS
 		tar -C /tmp/genesis/ -xf /tmp/genesis.tar.gz
 		rm /tmp/genesis.tar.gz
-		mv /tmp/genesis/`ls /tmp/genesis/` /root/$BINARY/config/genesis.json
+		mv /tmp/genesis/`ls /tmp/genesis/` /root/.lava/config/genesis.json
 		
 		if [[ -z $DENOM ]]
 		then
@@ -100,7 +100,7 @@ then
 			echo 'export DENOM='${DENOM} >> /root/.bashrc
 		fi
 	else
-		rm /root/$BINARY/config/genesis.json
+		rm /root/.lava/config/genesis.json
 		wget -O $HOME/$BINARY/config/genesis.json $GENESIS
 		if [[ -z $DENOM ]]
 		then
@@ -149,20 +149,20 @@ fi
 echo $PEER
 echo $SEED
 sleep 5
-sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025$DENOM\"/;" /root/$BINARY/config/app.toml
+sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025$DENOM\"/;" /root/.lava/config/app.toml
 sleep 1
-sed -i.bak -e "s/^double_sign_check_height *=.*/double_sign_check_height = 15/;" /root/$BINARY/config/config.toml
-sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEED\"/;" /root/$BINARY/config/config.toml
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEER\"/;" /root/$BINARY/config/config.toml
-sed -i.bak -e "s_"tcp://127.0.0.1:26657"_"tcp://0.0.0.0:26657"_;" /root/$BINARY/config/config.toml
+sed -i.bak -e "s/^double_sign_check_height *=.*/double_sign_check_height = 15/;" /root/.lava/config/config.toml
+sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEED\"/;" /root/.lava/config/config.toml
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEER\"/;" /root/.lava/config/config.toml
+sed -i.bak -e "s_"tcp://127.0.0.1:26657"_"tcp://0.0.0.0:26657"_;" /root/.lava/config/config.toml
 pruning="custom" && \
 pruning_keep_recent="1000" && \
 pruning_interval="10" && \
-sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" /root/$BINARY/config/app.toml && \
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" /root/$BINARY/config/app.toml && \
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" /root/$BINARY/config/app.toml
+sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" /root/.lava/config/app.toml && \
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" /root/.lava/config/app.toml && \
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" /root/.lava/config/app.toml
 snapshot_interval="2000" && \
-sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" /root/$BINARY/config/app.toml
+sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" /root/.lava/config/app.toml
 #-----------------------------------------------------------
 # ====================RPC======================
 if [[ -n ${SNAP_RPC} ]] && [[ ${STATE_SYNC} == true ]]
@@ -177,12 +177,12 @@ then
 	sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
 	s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$RPC\"| ; \
 	s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-	s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /root/$BINARY/config/config.toml
+	s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /root/.lava/config/config.toml
 fi
 #================================================
 if [[ -n ${VALIDATOR_KEY_JSON_BASE64} ]]
 then
-echo $VALIDATOR_KEY_JSON_BASE64 | base64 -d > /root/$BINARY/config/priv_validator_key.json
+echo $VALIDATOR_KEY_JSON_BASE64 | base64 -d > /root/.lava/config/priv_validator_key.json
 else
    wget -O /tmp/priv_validator_key.json ${LINK_KEY}
    file=/tmp/priv_validator_key.json
@@ -190,10 +190,10 @@ else
    then
 	      sleep 2
 	      cd /
-	      rm /root/$BINARY/config/priv_validator_key.json
+	      rm /root/.lava/config/priv_validator_key.json
 	      echo ==========priv_validator_key found==========
 	      echo ========Обнаружен priv_validator_key========
-	      cp /tmp/priv_validator_key.json /root/$BINARY/config/
+	      cp /tmp/priv_validator_key.json /root/.lava/config/
 	      echo ========Validate the priv_validator_key.json file=========
 	      echo ==========Сверьте файл priv_validator_key.json============
 	      cat /tmp/priv_validator_key.json
@@ -222,13 +222,13 @@ fi
 
 SNAPSHOT(){
 sv stop lavad
-cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_state.json.backup
-lavad tendermint unsafe-reset-all --home /root/$BINARY --keep-addr-book
+cp /root/.lava/data/priv_validator_state.json /root/.lava/priv_validator_state.json.backup
+lavad tendermint unsafe-reset-all --home /root/.lava --keep-addr-book
 
 SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/lava-testnet/ | egrep -o ">lava-testnet-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots1-testnet.nodejumper.io/lava-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C /root/$BINARY
+curl https://snapshots1-testnet.nodejumper.io/lava-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C /root/.lava
 
-mv /root/$BINARY/priv_validator_state.json.backup /root/$BINARY/data/priv_validator_state.json
+mv /root/.lava/priv_validator_state.json.backup /root/.lava/data/priv_validator_state.json
 sleep 5
 sv start lavad
 }
@@ -236,7 +236,7 @@ RUN (){
 # +++++++++++ Защита от двойной подписи ++++++++++++
 if [[ -n ${SNAP_RPC} ]]
 then
-  HEX=`cat /root/$BINARY/config/priv_validator_key.json | jq -r .address`
+  HEX=`cat /root/.lava/config/priv_validator_key.json | jq -r .address`
   COUNT=15
   CHECKING_BLOCK=`curl -s $SNAP_RPC/abci_info? | jq -r .result.response.last_block_height`
   while [[ $COUNT -gt 0 ]]
