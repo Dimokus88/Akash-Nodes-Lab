@@ -10,7 +10,6 @@ export GOPATH=$HOME/go
 export GO111MODULE=on
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 go version
-go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 sleep 5
 # ++++++++++++ Установка удаленного доступа ++++++++++++++
 echo 'export MY_ROOT_PASSWORD='${MY_ROOT_PASSWORD} >> /root/.bashrc
@@ -260,48 +259,40 @@ then
     let CHECKING_BLOCK=$CHECKING_BLOCK-1
     sleep 1
   done
-fi
-# ++++++++++++++++++++++++++++++++++++++++++++++++++
-
-mkdir -p ~/$BINARY/cosmovisor/genesis/bin
-mkdir -p ~/$BINARY/cosmovisor/upgrades
-cp ~/go/bin/$BINARY ~/$BINARY/cosmovisor/genesis/bin
-
+fi# ++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #===========ЗАПУСК НОДЫ============
 echo =Run node...=
-mkdir -p /root/cosmovisor/log
-cat > /root/cosmovisor/run <<EOF 
+cd /
+mkdir -p /root/$BINARY/log
+    
+cat > /root/$BINARY/run <<EOF 
 #!/bin/bash
 exec 2>&1
-export DAEMON_HOME=/root/$BINARY/
-export DAEMON_NAME=$BINARY
-export DAEMON_ALLOW_DOWNLOAD_BINARIES=false
-export DAEMON_RESTART_AFTER_UPGRADE=true
-export UNSAFE_SKIP_BACKUP=true
-exec /root/go/bin/cosmovisor start --home /root/$BINARY
+exec $BINARY start
 EOF
-chmod +x /root/cosmovisor/run
-LOG=/var/log/cosmovisor
-
-cat > /root/cosmovisor/log/run <<EOF 
+chmod +x /root/$BINARY/run
+LOG=/var/log/$BINARY
+cat > /root/$BINARY/log/run <<EOF 
 #!/bin/bash
 mkdir $LOG
 exec svlogd -tt $LOG
 EOF
-chmod +x /root/cosmovisor/log/run
-
-ln -s /root/cosmovisor /etc/service
-
+chmod +x /root/$BINARY/log/run
+ln -s /root/$BINARY /etc/service
+ln -s /var/log/$BINARY/current /LOG
+sleep 5
 if [[ -n $SNAPSHOT ]]
 then
-sleep 5
-sv stop cosmovisor
+sleep 15
+sv stop $BINARY
+sleep 2
 cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_state.json.backup
 $BINARY tendermint unsafe-reset-all --home /root/$BINARY --keep-addr-book
 curl -o - -L $SNAPSHOT | lz4 -c -d - | tar -xf - -C /root/$BINARY
 mv /root/$BINARY/priv_validator_state.json.backup /root/$BINARY/data/priv_validator_state.json
-sv start cosmovisor
+sleep 2
+sv start $BINARY
 fi
 }
 #======================================================== КОНЕЦ БЛОКА ФУНКЦИЙ ====================================================
