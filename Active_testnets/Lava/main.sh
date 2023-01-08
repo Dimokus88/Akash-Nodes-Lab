@@ -259,7 +259,7 @@ fi
 #===========ЗАПУСК НОДЫ============
 echo =Run node...=
 cd /
-mkdir /root/$BINARY/log
+mkdir -p /root/$BINARY/log
     
 cat > /root/$BINARY/run <<EOF 
 #!/bin/bash
