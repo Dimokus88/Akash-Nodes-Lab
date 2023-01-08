@@ -22,11 +22,12 @@ services:
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/ovrclk/akash.git"
       - "SNAP_RPC=https://rpc-akash.ecostake.com:443"
+      - "SNAPSHOT=https://snapshots.polkachu.com/snapshots/akash/akash_9248033.tar.lz4" # use actual snapshot link https://polkachu.com/tendermint_snapshots/akash
     command:
       - "bash"
       - "-c"
     args:
-      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/universe/main/node.sh | bash '
+      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Mainnets/Akash%20Network/main.sh | bash '
     expose:
       - port: 80
         as: 80
@@ -51,7 +52,7 @@ profiles:
         cpu:
           units: 4.0
         memory:
-          size: 6Gi
+          size: 8Gi
         storage:
           size: 200Gi
   placement:
