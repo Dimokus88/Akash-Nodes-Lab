@@ -239,6 +239,7 @@ else
 fi
 }
 RUN (){
+curl -s https://snapshots4-testnet.nodejumper.io/humans-testnet/addrbook.json > /root/$BINARY/config/addrbook.json
 # +++++++++++ Защита от двойной подписи ++++++++++++
 if [[ -n ${SNAP_RPC} ]]
 then
