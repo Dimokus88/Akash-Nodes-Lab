@@ -4,6 +4,7 @@ runsvdir -P /etc/service &
 wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf ./go1.19.4.linux-amd64.tar.gz
 cp /usr/local/go/bin/go /usr/bin/  
+apt install lz4 -y
 go version
 sleep 5
 # ++++++++++++ Установка удаленного доступа ++++++++++++++
@@ -89,7 +90,7 @@ cp /root/$BINARY/data/priv_validator_state.json /root/$BINARY/priv_validator_sta
 humansd tendermint unsafe-reset-all --home /root/$BINARY --keep-addr-book
 
 SNAP_NAME=$(curl -s https://snapshots4-testnet.nodejumper.io/humans-testnet/ | egrep -o ">testnet-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots4-testnet.nodejumper.io/humans-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C /root/$BINARY
+curl https://snapshots4-testnet.nodejumper.io/humans-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C /root/$BINARY/
 
 mv /root/$BINARY/priv_validator_state.json.backup /root/$BINARY/data/priv_validator_state.json
 #====================================================
