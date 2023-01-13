@@ -1,11 +1,13 @@
 ---
 version: "2.0"
-
+endpoints:
+    endpoint_bitcoin: #use uniq endpoint name!
+        kind: ip
 services:
   app:
     image: ubuntu:latest 
     env:
-      - "PASS="    
+      - "PASS="    #for ssh connection
     
     command:
       - "bash"
@@ -18,7 +20,7 @@ services:
         wget https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz;
         tar xvf bitcoin-22.0-x86_64-linux-gnu.tar.gz;
         install -m 0755 -o root -g root -t /usr/local/bin bitcoin-22.0/bin/*;
-        bitcoind -port=8333;
+        bitcoind -port=8333 -prune=20000; # set options running bitcoin node
         sleep infinity'
     
     expose:
@@ -30,6 +32,7 @@ services:
         as: 8333
         to:
           - global: true
+            ip: endpoint_bitcoin #use uniq endpoint name!
       - port: 22
         as: 22
         to:
@@ -43,7 +46,7 @@ profiles:
         memory:
           size: 2Gi
         storage:
-          size: 600Gi
+          size: 50Gi
          
   placement:
     akash: 
@@ -52,7 +55,7 @@ profiles:
       pricing:
         app:
           denom: uakt
-          amount: 10000
+          amount: 1000000
 deployment:
   app:
     akash:
