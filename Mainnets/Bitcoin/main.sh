@@ -10,7 +10,7 @@ mkdir /root/.bitcoin
 
 if [[ -n $SNAPSHOT ]]
 then
-wget $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/.bitcoin
+curl $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/.bitcoin
 fi
 mkdir -p /root/bitcoin/log
 
