@@ -1,27 +1,21 @@
 ---
 version: "2.0"
-endpoints:
-    endpoint_bitcoin: #use uniq endpoint name!
-        kind: ip
 services:
   app:
     image: ubuntu:latest 
     env:
-      - "PASS="    #for ssh connection
+      - "PASS_SSH="   
+      - "LINK_BINARY=https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz"
+      - "SNAPSHOT=http://7e9f7q8ot19r5clpfrl7e0lh50.ingress.provider-2.prod.ewr1.akash.pub/bitcoin_data.lz4"
+      - "PRUNE=20000"
     
     command:
       - "bash"
       - "-c"
     args:
       - 'apt-get update && apt-get upgrade -y ;
-        apt-get install -y  wget tar ssh ;
-        echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && (echo $PASS; echo $PASS) | passwd root ; 
-        service ssh start;
-        wget https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz;
-        tar xvf bitcoin-22.0-x86_64-linux-gnu.tar.gz;
-        install -m 0755 -o root -g root -t /usr/local/bin bitcoin-22.0/bin/*;
-        bitcoind -port=8333 -prune=20000; # set options running bitcoin node
-        sleep infinity'
+        apt-get install -y  curl ;
+        curl https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Mainnets/Bitcoin/main.sh | bash'
     
     expose:
       - port: 80
@@ -32,7 +26,6 @@ services:
         as: 8333
         to:
           - global: true
-            ip: endpoint_bitcoin #use uniq endpoint name!
       - port: 22
         as: 22
         to:
