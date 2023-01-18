@@ -21,7 +21,10 @@ services:
       - "MONIKER=Akash" # Node name.Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "GITHUB_REPOSITORY=https://github.com/sei-protocol/sei-chain.git"
-      - "SNAP_RPC=https://rpc-sei-test.ecostake.com:443"
+      - "SNAP_RPC=https://sei-testnet.nodejumper.io:443"
+      - "GENESIS=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
+      - "DENOM=usei"
+      - "PEER=c542c905caa475de4fd9ecca401af29dab5dbee5@135.181.59.162:11956,d5bccc44a3d3089e093e3597ffc7d1dc5250243e@188.40.122.98:36659,c2c02622883f3f3bb56e770b795cce1776b35964@65.109.85.170:31656,b53bb8778a478cde3266569291a1184dec88a3fd@65.108.206.118:60956,b1f7e49b8fd8565cab4cb4c4a0d365c5aeb19c38@65.21.225.178:26656,e890fcf9735a3cbfb236b8c4f75d0110c9988776@65.108.136.152:29656,05c5c96e0a1911b1cb0415fe3bcee6cf1f7a4395@65.108.131.190:28356,1fc581acd401fb38d1f0c1a4b57ece6c096b3a98@65.108.231.124:14656,bd502966bcc7866969f5230a02a3c35c31246d05@213.239.217.52:31656"
     command:
       - "bash"
       - "-c"
@@ -49,7 +52,7 @@ profiles:
     app:
       resources:
         cpu:
-          units: 4.0
+          units: 6.0
         memory:
           size: 6Gi
         storage:
