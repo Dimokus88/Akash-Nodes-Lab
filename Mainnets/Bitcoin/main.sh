@@ -2,6 +2,7 @@
 apt-get install -y  wget tar ssh runit lz4
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && (echo $PASS_SSH; echo $PASS_SSH) | passwd root
 service ssh start
+runsvdir -P /etc/service &
 wget $LINK_BINARY
 tar xvf `basename $LINK_BINARY`
 rm `basename $LINK_BINARY`
