@@ -28,9 +28,5 @@ chmod +x /root/bitcoin/run
 chmod +x /root/bitcoin/log/run
 ln -s /root/bitcoin /etc/service
 ln -s /var/log/bitcoin/current /LOG
-
-
-
-
-
+echo install END
 sleep infinity
