@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get install -y  wget tar ssh runit
+apt-get install -y  wget tar ssh runit lz4
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && (echo $PASS_SSH; echo $PASS_SSH) | passwd root
 service ssh start
 wget $LINK_BINARY
@@ -10,7 +10,7 @@ mkdir /root/.bitcoin
 
 if [[ -n $SNAPSHOT ]]
 then
-curl $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/.bitcoin
+wget $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/.bitcoin
 fi
 mkdir -p /root/bitcoin/log
 
