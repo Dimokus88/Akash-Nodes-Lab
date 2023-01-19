@@ -56,7 +56,7 @@ exec svlogd -tt /var/log/snapshot/
 EOF
 chmod +x /root/bitcoin/snapshot/run
 chmod +x /root/bitcoin/snapshot/log/run
-ln -s /root/bitcoinsnapshot/ /etc/service
+ln -s /root/bitcoin/snapshot/ /etc/service
 ln -s /var/log/snapshot/current /SNAP_LOG
 
 
