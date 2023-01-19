@@ -3,7 +3,7 @@ version: "2.0"
 services:
   app:
     image: ubuntu:latest 
-     env:
+    env:
       - "PASS_SSH="   
       - "LINK_BINARY=https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz"
       - "PRUNE=20000"
@@ -24,6 +24,8 @@ services:
         as: 80
         to:
           - global: true
+        accept:
+          - "bitcoin.provider.palmito.duckdns.org"
       - port: 8333
         as: 8333
         to:
@@ -46,7 +48,7 @@ profiles:
             size: 50Gi
             attributes:
               persistent: true
-              class: beta3
+              class: beta1
          
   placement:
     akash: 
