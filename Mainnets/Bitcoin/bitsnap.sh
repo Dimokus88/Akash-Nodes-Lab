@@ -35,8 +35,8 @@ cat > /root/bitcoin/snapshot.sh <<EOF
 #!/bin/bash
 for ((;;))
 do
-cd /var/www/html/
-tar -cvf bitcoin_data.lz4 -I lz4 ./blocks ./chainstate
+rm /var/www/html/bitcoin_data.lz4
+tar -cvf /var/www/html/bitcoin_data.lz4 -I lz4 /root/.bitcoin/blocks/  /root/.bitcoin/chainstate/
 DATE=date
 echo Archive \$DATE create!
 sleep 6h
