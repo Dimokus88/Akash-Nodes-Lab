@@ -11,6 +11,8 @@ mkdir /root/.bitcoin
 
 if [[ -n $SNAPSHOT ]]
 then
+echo ==== Скачивание снепшота 21 Gb.Время скачивания зависит от провайдера, и может занимать до 1 часа. ====
+echo = Downloading a 21 GB snapshot. The download time depends on the provider, and can take up to 1 hour. =
 curl $SNAPSHOT | lz4 -dc - | tar -xf - -C /root/.bitcoin
 fi
 mkdir -p /root/bitcoin/log
@@ -29,5 +31,6 @@ chmod +x /root/bitcoin/run
 chmod +x /root/bitcoin/log/run
 ln -s /root/bitcoin /etc/service
 ln -s /var/log/bitcoin/current /LOG
-echo install END
+echo = Установка завершена, логи ноды доступны командой [tail -f /var/log/bitcoin/current] =
+echo == Installation complete, node logs available with [tail -f /var/log/bitcoin/current] =
 sleep infinity
