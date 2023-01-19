@@ -6,7 +6,7 @@ services:
     env:
       - "PASS_SSH="   
       - "LINK_BINARY=https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz"
-      - "SNAPSHOT=http://7e9f7q8ot19r5clpfrl7e0lh50.ingress.provider-2.prod.ewr1.akash.pub/bitcoin_data.lz4"
+      - "SNAPSHOT=http://bitcoin.provider.palmito.duckdns.org/bitcoin_data.lz4"
       - "PRUNE=20000"
     
     command:
