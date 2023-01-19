@@ -4,19 +4,19 @@ services:
   app:
     image: ubuntu:latest 
     env:
-      - "PASS_SSH="   
-      - "LINK_BINARY=https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz"
-      - "SNAPSHOT=http://bitcoin.provider.palmito.duckdns.org/bitcoin_data.lz4"
-      - "PRUNE=20000"
-    
+      - "PASS_SSH=" # Password to connect to the node via SSH (root user). Пароль для подключения к ноде по SSH(пользователь root).
+      - "LINK_BINARY=https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz" # The download address of the binary file.Адрес скачивание бинарного файла.
+      - "SNAPSHOT=http://bitcoin.provider.palmito.duckdns.org/bitcoin_data.lz4" # Node snapshot (disable if you want to sync the full node).Снепшот ноды(отключите если хотите синхронизировать полную ноду).
+      - "PRUNE=20000" # Blockchain pruning, indicates the number of megabytes available for node storage (disable if you want to synchronize the full node).Обрезка блокчейна, указывается количество мегабайт доступных для хранения ноды (отключите если хотите синхронизировать полную ноду).
+    # Synchronization of a full bitcoin node needs more than 600 gigabytes of memory, and will take about 5 days.
+    # Синхронизация полной ноды биткоина нуждается более чем в 600 гигабайт памяти, и займет около 5 дней.
     command:
       - "bash"
       - "-c"
     args:
       - 'apt-get update && apt-get upgrade -y ;
         apt-get install -y  curl ;
-        curl https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Mainnets/Bitcoin/main.sh | bash'
-    
+        curl https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Mainnets/Bitcoin/main.sh | bash'    
     expose:
       - port: 80
         as: 80
@@ -39,16 +39,14 @@ profiles:
         memory:
           size: 2Gi
         storage:
-          size: 50Gi
-         
+          size: 50Gi # A full Bitcoin node requires over 600 gigabytes. Для полной ноды Биткоин необходимо более 600 гигабайт.         
   placement:
     akash: 
-      attributes:
-            
+      attributes:            
       pricing:
         app:
           denom: uakt
-          amount: 1000000
+          amount: 10000
 deployment:
   app:
     akash:
