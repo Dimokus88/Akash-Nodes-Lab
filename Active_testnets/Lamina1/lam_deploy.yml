@@ -1,0 +1,54 @@
+---
+version: "2.0"
+services:
+  app:
+    image: ubuntu:22.04
+    expose:
+      - port: 80
+        as: 80
+        proto: tcp
+        to:
+          - global: true            
+      - port: 22
+        as: 22
+        proto: tcp
+        to:
+          - global: true
+      - port: 9651
+        as: 9651
+        proto: tcp
+        to:
+          - global: true        
+    env:
+     - "SSH_PASS="
+   
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'apt-get update ; apt-get upgrade -y ; apt-get install -y tmate curl ; '
+
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 2.0
+        memory:
+          size: 4Gi
+        storage:
+          size: 30Gi
+
+  placement:
+    akash: 
+      attributes:
+            
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
