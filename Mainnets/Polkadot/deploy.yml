@@ -1,0 +1,41 @@
+---
+version: "2.0"
+services:
+  app:
+    image: parity/polkadot:v0.9.32
+    args:
+      - '--name=NODE_NAME'
+      - '--rpc-external'
+      - '--ws-external'
+      - '--prometheus-external'
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 9944
+        as: 9944
+        to:
+          - global: true
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 16Gi
+        storage:
+          size: 250Gi 
+  placement:
+    akash: 
+      attributes:            
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
