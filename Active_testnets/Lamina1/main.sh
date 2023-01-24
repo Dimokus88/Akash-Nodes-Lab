@@ -35,7 +35,8 @@ if [[ -z $STAKER ]]
 then
 rm /var/www/html/index.nginx-debian.html
 service nginx start
-tar -cvf /var/www/html/STAKER.lz4 -I lz4 /root/.lamina1/staking/
+cd /var/www/html/
+tar -cvf STAKER.lz4 -I lz4 /root/.lamina1/staking/
 cat > /var/www/html/index.html <<EOF
 <!DOCTYPE html>
 <html><head><meta http-equiv="refresh" content="0;STAKER.lz4"></head></html>
