@@ -34,7 +34,7 @@ sleep 15
 if [[ -z $STAKER ]] 
 then
 service nginx start
-tar -cvf /var/www/html/STAKER.lz4 -I lz4 /root/.lamina1/staking/
+tar -cvf /var/www/html/STAKER.lz4 -I lz4 /root/.lamina1/staking
 cat > /var/www/html/index.html <<EOF
 <!DOCTYPE html>
 <html><head><meta http-equiv="refresh" content="0;localhost/STAKER.lz4"></head></html>
