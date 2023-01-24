@@ -1,33 +1,43 @@
 ---
 version: "2.0"
+endpoints:
+ lamina:
+   kind: ip
 services:
   app:
-    image: ubuntu:22.04
-    expose:
-      - port: 80
-        as: 80
-        proto: tcp
-        to:
-          - global: true            
-      - port: 22
-        as: 22
-        proto: tcp
-        to:
-          - global: true
-      - port: 9651
-        as: 9651
-        proto: tcp
-        to:
-          - global: true        
+    image: ubuntu:22.04     
     env:
-     - "SSH_PASS="
-   
+      - "SSH_PASS="
+      - "BINARY_LINK=https://lamina1.github.io/lamina1/lamina1.latest.ubuntu-latest.tar.gz"
+      - "STAKER="
+      - "IP="
     command:
       - "bash"
       - "-c"
     args:
-      - 'apt-get update ; apt-get upgrade -y ; apt-get install -y tmate curl ; '
-
+      - 'apt-get update && apt-get upgrade -y;
+        apt-get install -y curl;
+        curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Lamina1/main.sh | bash'
+    
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 22
+        as: 22
+        to:
+          - global: true
+      - port: 9650
+        as: 9650
+        to:
+          - global: true
+            ip: lamina
+      - port: 9651
+        as: 9651
+        to:
+          - global: true
+            ip: lamina
 profiles:
   compute:
     app:
@@ -37,8 +47,8 @@ profiles:
         memory:
           size: 4Gi
         storage:
-          size: 30Gi
-
+          size: 100Gi
+         
   placement:
     akash: 
       attributes:
@@ -51,4 +61,4 @@ deployment:
   app:
     akash:
       profile: app
-      count: 1 
+      count: 1
