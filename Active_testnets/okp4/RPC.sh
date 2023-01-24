@@ -233,8 +233,8 @@ for ((;;))
 do
 sleep 6h
 sv stop $BINARY
-rm /var/www/html/$BINARY_data.lz4
-tar -cvf /var/www/html/$BINARY_data.lz4 -I lz4 /root/$BINARY/data/  /root/$BINARY/wasm/
+rm /var/www/html/okp4_data.lz4
+tar -cvf /var/www/html/okp4_data_data.lz4 -I lz4 /root/$BINARY/data/  /root/$BINARY/wasm/
 DATE=date
 sv start $BINARY
 echo Archive \$DATE create!  
