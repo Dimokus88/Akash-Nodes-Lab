@@ -9,14 +9,14 @@ service ssh start
 wget $BINARY_LINK
 tar -xvzf lamina1.latest.ubuntu-latest.tar.gz
 cd lamina1
-curl https://lamina1.github.io/lamina1/config.testnet.tar | tar xf -
-
+mkdir -p /lamina1/configs/testnet/
+curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Lamina1/default.json >/lamina1/configs/testnet/default.json
+curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Lamina1/genesis_combined.json > /lamina1/configs/testnet/genesis_combined.json
 mkdir -p /root/lamina1/log
 cat > /root/lamina1/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec cd /lamina1/
-exec ./lamina1-node  --config-file ./configs/testnet/default.json
+exec /lamina1/lamina1-node  --config-file /lamina1/configs/testnet/default.json
 EOF
 mkdir /lamina1/log/
 cat > /root/lamina1/log/run <<EOF 
