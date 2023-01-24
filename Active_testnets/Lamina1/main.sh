@@ -31,6 +31,6 @@ EOF
 chmod +x /root/lamina1/run
 chmod +x /root/lamina1/log/run
 ln -s /root/lamina1 /etc/service
-sleep 10
+sleep 25
 echo == YOUR NODE ID:  `/lamina1/get_my_nodeid.sh | grep NodeID`  ==
 sleep infinity
