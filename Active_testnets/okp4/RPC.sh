@@ -227,37 +227,37 @@ else
 	echo "================= Нода запущена с сгенерированным ключом валидатора! =============="
 	echo "==================================================================================="
 	RUN
-  cat > /root/$BINARY/snapshot.sh <<EOF 
-  #!/bin/bash
-  for ((;;))
-  do
-  sleep 6h
-  sv stop $BINARY
-  rm /var/www/html/$BINARY_data.lz4
-  tar -cvf /var/www/html/$BINARY_data.lz4 -I lz4 /root/$BINARY/data/  /root/$BINARY/wasm/
-  DATE=date
-  sv start $BINARY
-  echo Archive \$DATE create!  
-  done
-  EOF
-  chmod +x /root/$BINARY/snapshot.sh
-  mkdir -p /root/$BINARY/snapshot/log/
-  cat > /root/$BINARY/snapshot/run <<EOF 
-  #!/bin/bash
-  exec 2>&1
-  exec /root/$BINARY/snapshot.sh
-  EOF
-  cat > /root/$BINARY/snapshot/log/run <<EOF 
-  #!/bin/bash
-  mkdir /var/log/snapshot/
-  exec svlogd -tt /var/log/snapshot/
-  EOF
-  chmod +x /root/$BINARY/snapshot/run
-  chmod +x /root/$BINARY/snapshot/log/run
-  ln -s /root/$BINARY/snapshot/ /etc/service
-  ln -s /var/log/snapshot/current /SNAP_LOG
-	sleep infinity 	
-    fi
+cat > /root/$BINARY/snapshot.sh <<EOF 
+#!/bin/bash
+for ((;;))
+do
+sleep 6h
+sv stop $BINARY
+rm /var/www/html/$BINARY_data.lz4
+tar -cvf /var/www/html/$BINARY_data.lz4 -I lz4 /root/$BINARY/data/  /root/$BINARY/wasm/
+DATE=date
+sv start $BINARY
+echo Archive \$DATE create!  
+done
+EOF
+chmod +x /root/$BINARY/snapshot.sh
+mkdir -p /root/$BINARY/snapshot/log/
+cat > /root/$BINARY/snapshot/run <<EOF 
+#!/bin/bash
+exec 2>&1
+exec /root/$BINARY/snapshot.sh
+EOF
+cat > /root/$BINARY/snapshot/log/run <<EOF 
+#!/bin/bash
+mkdir /var/log/snapshot/
+exec svlogd -tt /var/log/snapshot/
+EOF
+chmod +x /root/$BINARY/snapshot/run
+chmod +x /root/$BINARY/snapshot/log/run
+ln -s /root/$BINARY/snapshot/ /etc/service
+ln -s /var/log/snapshot/current /SNAP_LOG
+sleep infinity 	
+fi
 fi
 }
 RUN (){
