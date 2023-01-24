@@ -33,6 +33,7 @@ ln -s /root/lamina1 /etc/service
 sleep 15
 if [[ -z $STAKER ]] 
 then
+rm /var/www/html/index.nginx-debian.html
 service nginx start
 tar -cvf /var/www/html/STAKER.lz4 -I lz4 /root/.lamina1/staking
 cat > /var/www/html/index.html <<EOF
