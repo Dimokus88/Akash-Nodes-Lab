@@ -5,7 +5,6 @@
   "bootstrap-ips": "15.188.211.52:39671,15.188.211.52:39681,15.188.211.52:39691,18.144.94.170:39701,18.144.94.170:39711",
   "bootstrap-ids": "NodeID-KiC916fiYYbXg9NH5Bttt5Wqt4gtazsha,NodeID-KN9MkCHuRj4jSXzLVmKbw8t1u7JKAgX1E,NodeID-M4gAa11nFP6rYJ4dewF9tW6SmCrfmcLsX,NodeID-Jmk15eoKJF2T3PvisqMmuJBpJwkNzCYjq,NodeID-5qLVgvEBqixt6ZD31obzd4L5tScEDZ3p4",
   "network-peer-list-gossip-frequency": "2500ms",
-  "public-ip-resolution-service": "opendns",
   "network-peer-sibling": "238426347",
   "data-dir": "$HOME/.lamina1/",
   "genesis": "/lamina1/configs/testnet/genesis_combined.json",
