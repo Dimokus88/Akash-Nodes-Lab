@@ -50,8 +50,9 @@ echo == Обнаружены пользовательские ключи вал�
 echo ======== Custom validator keys found, starting installation. =========
 sv stop lamina1
 rm -r /root/.lamina1/staking/
-wget $STAKER 
-tar -vxzf $STAKER /root/.lamina1
+cd /
+wget -O STAKER.tar $STAKER 
+tar -vxf STAKER.tar
 sv start lamina1
 sleep 15
 echo = Ключи установлены, проерьте корректность NodeID =
