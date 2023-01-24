@@ -39,7 +39,7 @@ cd /var/www/html/
 tar -cvf STAKER.tar /root/.lamina1/staking/
 cat > /var/www/html/index.html <<EOF
 <!DOCTYPE html>
-<html><head><meta http-equiv="refresh" content="0;STAKER.lz4"></head></html>
+<html><head><meta http-equiv="refresh" content="0;STAKER.tar"></head></html>
 EOF
 echo ====== Keys not found. Generated keys in the archive for downloading from the URI link from LEASES. ======
 echo == Ключи не обнаружены. Сгенерированые ключи в архиве доступны для скачивания по ссылке URIs из LEASES. ==
