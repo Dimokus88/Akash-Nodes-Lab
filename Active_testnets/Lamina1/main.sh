@@ -58,4 +58,6 @@ sleep 15
 echo = Ключи установлены, проерьте корректность NodeID =
 echo ====== Keys set, check if NodeID is correct =======
 echo == YOUR NODE ID:  `/lamina1/get_my_nodeid.sh | grep NodeID`  ==
+echo == Логи доступны по команде " tail -f /lamina1/log/current " ==
+echo === Logs are available with " tail -f /lamina1/log/current " ==
 sleep infinity
