@@ -1,0 +1,77 @@
+{
+  "config": {
+    "feeConfig": {
+      "gasLimit": 8000000,
+      "targetBlockRate": 2,
+      "minBaseFee": 25000000000,
+      "targetGas": 15000000,
+      "baseFeeChangeDenominator": 36,
+      "minBlockGasCost": 10000,
+      "maxBlockGasCost": 1000000,
+      "blockGasCostStep": 200000
+    },
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip150Hash": "0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0",
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "muirGlacierBlock": 0
+  },
+  "networkID": 7649,
+  "allocations": [
+    {
+      "ethAddr": "0xb3d82b1367d362de99ab59a658165aff520cbd4d",
+      "l1Addr": "X-lmna10g6ne03kj4mpjw5nwjcc4yu35kxxyy96lfw779",
+      "initialAmount": 0,
+      "unlockSchedule": [
+        {
+          "amount": 5000000000000000
+        }
+      ]
+    },
+    {
+      "ethAddr": "0xe183485d54b089fa2c0abb34a4521baa696080e0",
+      "l1Addr": "X-lmna1juhhgclr3zthy3acaermhjsal9mwum7fjce947",
+"initialAmount": 150000000000000000
+    }
+  ],
+  "startTime": 1671227949,
+  "initialStakeDuration": 31536000,
+  "initialStakeDurationOffset": 5400,
+  "initialStakedFunds": [
+    "X-lmna10g6ne03kj4mpjw5nwjcc4yu35kxxyy96lfw779"
+  ],
+  "initialStakers": [
+    {
+      "nodeID": "NodeID-KiC916fiYYbXg9NH5Bttt5Wqt4gtazsha",
+      "rewardAddress": "X-lmna10g6ne03kj4mpjw5nwjcc4yu35kxxyy96lfw779",
+      "delegationFee": 1000000
+    },
+    {
+      "nodeID": "NodeID-KN9MkCHuRj4jSXzLVmKbw8t1u7JKAgX1E",
+      "rewardAddress": "X-lmna10g6ne03kj4mpjw5nwjcc4yu35kxxyy96lfw779",
+      "delegationFee": 500000
+    },
+    {
+      "nodeID": "NodeID-M4gAa11nFP6rYJ4dewF9tW6SmCrfmcLsX",
+      "rewardAddress": "X-lmna10g6ne03kj4mpjw5nwjcc4yu35kxxyy96lfw779",
+      "delegationFee": 250000
+    },
+    {
+      "nodeID": "NodeID-Jmk15eoKJF2T3PvisqMmuJBpJwkNzCYjq",
+      "rewardAddress": "X-lmna10g6ne03kj4mpjw5nwjcc4yu35kxxyy96lfw779",
+      "delegationFee": 125000
+    },
+    {
+      "nodeID": "NodeID-5qLVgvEBqixt6ZD31obzd4L5tScEDZ3p4",
+      "rewardAddress": "X-lmna10g6ne03kj4mpjw5nwjcc4yu35kxxyy96lfw779",
+      "delegationFee": 62500
+    }
+  ],
+  "message": "all information looks like noise until you break the code.",
+  "cChainGenesis": "{\"config\":{\"chainId\":7649,\"homesteadBlock\":0,\"daoForkBlock\":0,\"daoForkSupport\":true,\"eip150Block\":0,\"eip150Hash\":\"0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0\",\"eip155Block\":0,\"eip158Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"muirGlacierBlock\":0,\"apricotPhase1BlockTimestamp\":1617199200,\"apricotPhase2BlockTimestamp\":1620644400,\"apricotPhase3BlockTimestamp\":1629813600,\"apricotPhase4BlockTimestamp\":1632344400,\"apricotPhase5BlockTimestamp\":1638468000},\"nonce\":\"0x0\",\"timestamp\":\"0x63A27B97\",\"extraData\":\"0x00\",\"gasLimit\":\"0x5f5e100\",\"difficulty\":\"0x0\",\"mixHash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"coinbase\":\"0x0000000000000000000000000000000000000000\",\"alloc\":{\"0x76d59c866Dee27E93682a4C9eEB0245b9AC00651\":{\"balance\":\"0x108b2a2c28029094000000\"}},\"number\":\"0x0\",\"gasUsed\":\"0x0\",\"parentHash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\"}"
+}
