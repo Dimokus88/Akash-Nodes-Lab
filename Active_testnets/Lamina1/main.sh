@@ -1,7 +1,7 @@
 #!/bin/bash
 TZ=Europe/Kiev
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-apt-get install -y  ssh wget curl tar runit
+apt-get install -y  ssh wget curl tar runit lz4 nginx
 runsvdir -P /etc/service &
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config;
 (echo $SSH_PASS; echo $SSH_PASS) | passwd root
@@ -16,7 +16,6 @@ cat > /lamina1/get_my_nodeid.sh <<EOF
 #!/bin/sh
 curl -s -X POST --data '{"jsonrpc":"2.0","id":1,"method" :"info.getNodeID"}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info | cut -d '"' -f 10
 EOF
-
 mkdir -p /root/lamina1/log
 cat > /root/lamina1/run <<EOF 
 #!/bin/bash
@@ -31,6 +30,28 @@ EOF
 chmod +x /root/lamina1/run
 chmod +x /root/lamina1/log/run
 ln -s /root/lamina1 /etc/service
-sleep 10
+sleep 15
+if [[ -z $STAKER ]] 
+then
+service nginx start
+tar -cvf /var/www/html/STAKER.lz4 -I lz4 /root/.lamina1/staking/
+car > /var/www/html/index.html <<EOF
+<!DOCTYPE html>
+<html><head><meta http-equiv="refresh" content="0;localhost/STAKER.lz4"></head></html>
+EOF
+echo ====== Keys not found. Generated keys in the archive for downloading from the URI link from LEASES. ======
+echo == Ключи не обнаружены. Сгенерированые ключи в архиве доступны для скачивания по ссылке URIs из LEASES. ==
+echo == YOUR NODE ID:  `/lamina1/get_my_nodeid.sh | grep NodeID`  ==
+sleep infinity
+fi
+echo == Обнаружены пользовательские ключи валидатора, начинаю установку. ==
+echo ======== Custom validator keys found, starting installation. =========
+sv stop lamina1
+rm -r /root/.lamina1/staking/
+curl $STAKER | lz4 -dc - | tar -xf - -C /root/.lamina1/
+sv start lamina1
+sleep 15
+echo = Ключи установлены, проерьте корректность NodeID =
+echo ====== Keys set, check if NodeID is correct =======
 echo == YOUR NODE ID:  `/lamina1/get_my_nodeid.sh | grep NodeID`  ==
 sleep infinity
