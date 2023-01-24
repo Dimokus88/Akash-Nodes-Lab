@@ -57,7 +57,7 @@ tar -vxf STAKER.tar
 cat > /root/lamina1/run <<EOF 
 #!/bin/bash
 exec 2>&1
-exec /lamina1/lamina1-node  --config-file /lamina1/configs/testnet/default.json --public-ip $IP
+exec /lamina1/lamina1-node  --config-file /lamina1/configs/testnet/default.json --public-ip=$IP
 EOF
 
 sv start lamina1
