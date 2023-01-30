@@ -20,7 +20,7 @@ services:
       - "MY_ROOT_PASSWORD=" #Root password far a ssh connection. Пароль root для подключения по ssh.
       - "MONIKER=Akash" # Node name.Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
-      - "BINARY_LINK=https://github.com/sentinel-official/hub/releases/download/v0.9.3/sentinelhub-0.9.3-linux-amd64"
+      - "BINARY_LINK=https://github.com/sentinel-official/hub/releases/download/v0.10.1/sentinelhub-0.10.1-linux-amd64"
       - "SNAP_RPC=https://rpc.sentinel.co:443"
       - "PEER=0393c19b176d1cf8bc560c5a8fa990301deb1a7e@135.181.188.20:26656,abc27c91439681b1e7fa4b08b54ebbcc42855973@195.201.63.87:46656,072e3674970c8ef464ee3c2d9ad1d0c709384e62@135.181.55.244:26656,f6f60444040f9f2067519d3f1a1e6c8094cf5664@65.108.195.12:26656,1fe8fddc8a63641774e50ff4518e022c1529fc20@95.216.230.148:26656,36b67a90b368716bb9ce3e47f5198816405c4de3@95.217.127.28:26656"
     command:
