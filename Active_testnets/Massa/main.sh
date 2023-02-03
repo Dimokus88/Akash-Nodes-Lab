@@ -72,8 +72,10 @@ cd /massa/massa-client/
 
 while  grep error ./STATUS
 do
-echo ==== Нода не подключена, ожидайте.. =====
-echo ===== Node is not connected, wait.. =====
+echo ================= Нода не подключена, ожидайте.. =======================
+echo == Логи работы massa-node доступны командой tail -f /root/log/current ==
+echo ================== Node is not connected, wait.. =======================
+echo ===== massa-node logs are available with tail -f /root/log/current =====
 echo $status
 sleep 2m
 status=`./massa-client get_status -p $pass`
