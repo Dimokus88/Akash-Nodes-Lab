@@ -68,9 +68,9 @@ EOF
 chmod +x /massa/massa-node/log/run
 ln -s /massa/massa-node /etc/service
 cd /massa/massa-client/
-status=`./massa-client get_status -p $pass`
+./massa-client get_status -p $pass > ./STATUS
 
-if  grep error $status 
+if  grep error ./STATUS
 then
 echo ==== Нода не подключена, ожидайте.. =====
 echo ===== Node is not connected, wait.. =====
