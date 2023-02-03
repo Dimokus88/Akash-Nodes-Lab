@@ -78,7 +78,8 @@ echo ================== Node is not connected, wait.. =======================
 echo ===== massa-node logs are available with tail -f /root/log/current =====
 echo $status
 sleep 2m
-status=`./massa-client get_status -p $pass`
+./massa-client get_status -p $pass > ./STATUS
+sleep 2
 done
 
 chmod +x massa-client
