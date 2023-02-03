@@ -85,7 +85,7 @@ my_wallet_addr=`./massa-client wallet_info -p $pass`
 sleep 10
 for ((;;))
 do	
-		./massa-client node_add_staking_secret_keys $my_wallet_privkey -p $pass
+		./massa-client node_start_staking  $my_wallet_addr -p $pass
 		synh=`./massa-client get_status -p $pass | grep "Version" | awk '{ print $2 }'`  
 		if [[ $discord == 1 ]]
 		then
