@@ -70,14 +70,14 @@ ln -s /massa/massa-node /etc/service
 cd /massa/massa-client/
 ./massa-client get_status -p $pass > ./STATUS
 
-if  grep error ./STATUS
-then
+while  grep error ./STATUS
+do
 echo ==== Нода не подключена, ожидайте.. =====
 echo ===== Node is not connected, wait.. =====
 echo $status
 sleep 2m
 status=`./massa-client get_status -p $pass`
-fi
+done
 
 chmod +x massa-client
 ./massa-client wallet_add_secret_keys $my_wallet_privkey -p $pass
