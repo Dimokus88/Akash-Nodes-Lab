@@ -4,18 +4,17 @@ TZ=Europe/Kiev
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 apt-get update
 apt-get upgrade -y
-apt-get install -y sudo nano wget tar zip unzip jq goxkcdpwgen ssh build-essential git make dpkg gcc nvme-cli pkg-config libssl-dev libleveldb-dev clang bsdmainutils ncdu libleveldb-dev 
+apt-get install -y sudo nano wget tar zip unzip jq goxkcdpwgen ssh  git 
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 (echo ${my_root_password}; echo ${my_root_password}) | passwd root
 service ssh restart
 sleep 5
 wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
-sudo dpkg -i ./libssl1.1_1.1.0g-2ubuntu4_amd64.deb
-sudo apt-get install -y nano runit
+dpkg -i ./libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+apt-get install -y nano runit
 runsvdir -P /etc/service &
 source $HOME/.bashrc
 discord=1
-error="Error: check if your node is running: error trying to connect: tcp connect error: Connection refused (os error 111)"
 echo 'export my_root_password='${my_root_password} >> $HOME/.bashrc
 echo 'export my_discord_id='${my_discord_id} >> $HOME/.bashrc
 echo 'export my_wallet_privkey='${my_wallet_privkey} >> $HOME/.bashrc
@@ -71,7 +70,7 @@ ln -s /massa/massa-node /etc/service
 cd /massa/massa-client/
 status=`./massa-client get_status -p $pass`
 
-while [[ $status == $error ]]
+while grep 111 $status 
 do
 echo ==== Нода не подключена, ожидайте.. =====
 echo ===== Node is not connected, wait.. =====
