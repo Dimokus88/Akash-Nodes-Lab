@@ -70,7 +70,7 @@ ln -s /massa/massa-node /etc/service
 cd /massa/massa-client/
 status=`./massa-client get_status -p $pass`
 
-while [[ grep 111 $status ]]
+while [[ grep error $status ]]
 do
 echo ==== Нода не подключена, ожидайте.. =====
 echo ===== Node is not connected, wait.. =====
