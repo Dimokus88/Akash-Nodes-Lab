@@ -81,7 +81,7 @@ chmod +x massa-client
 ./massa-client wallet_add_secret_keys $my_wallet_privkey -p $pass
 sleep 10
 ./massa-client wallet_info -p $pass
-my_wallet_addr=`./massa-client wallet_info -p $pass`
+my_wallet_addr=`./massa-client wallet_info -p $pass | grep "Address" | awk '{ print $2 }'`
 sleep 10
 for ((;;))
 do	
