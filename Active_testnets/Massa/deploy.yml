@@ -35,8 +35,7 @@ services:
      - "my_discord_id="
      - "my_wallet_privkey=" #Massa wallet privat key
      - "my_root_password=" #For ssh connection
-     - "wait=600" #Set roll check frequency in seconds. Установите частоту проверки роллов в секундах.
-     - "MASSA_LINK=https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_linux.tar.gz"
+     - "MASSA_LINK=https://github.com/massalabs/massa/releases/download/TEST.19.3/massa_TEST.19.3_release_linux.tar.gz"
      - "pass="
    
     command:
