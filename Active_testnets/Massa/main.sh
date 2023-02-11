@@ -36,17 +36,15 @@ cd /massa/massa-node/
 chmod +x massa-node
 cd /massa/massa-client/
 chmod +x massa-client
-if [[ -z $IP ]]
+if [[ -n $IP ]]
 then
-IP=$(wget -qO- eth0.me)
-fi
 cat > /massa/massa-node/config/config.toml <<EOF 
 [network]
 routable_ip = "$IP"
 EOF
 cat /massa/massa-node/config/config.toml
 sleep 5
-
+fi
 cd /
 mkdir /massa/massa-node/log
 
