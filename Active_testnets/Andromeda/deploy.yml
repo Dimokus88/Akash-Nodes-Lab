@@ -23,6 +23,7 @@ services:
       - "GITHUB_REPOSITORY=https://github.com/andromedaprotocol/andromedad"
       - "SNAP_RPC=https://andromeda-testnet.nodejumper.io:443"
       - "BINARY_VERSION=galileo-3-v1.1.0-beta1"
+      - "DENOM=uandr"
     command:
       - "bash"
       - "-c"
