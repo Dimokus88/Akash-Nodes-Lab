@@ -17,7 +17,7 @@ services:
   app:
     image: dimokus88/ubuntu:1.3
     env:
-      - "MY_ROOT_PASSWORD=" #Root password far a ssh connection. Пароль root для подключения по ssh.
+      - "SSH_PASS=" #Root password far a ssh connection. Пароль root для подключения по ssh.
       - "MONIKER=Akash" # Node name.Имя ноды.
       - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
       - "SNAP_RPC=https://quasar-testnet-rpc.polkachu.com:443"
