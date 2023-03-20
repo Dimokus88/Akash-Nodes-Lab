@@ -6,7 +6,7 @@ mkdir /root/validator_keys
 sleep 2
 echo $DEPOSIT_JSON_BASE64 | openssl base64 -d > /root/validator_keys/deposit_data-000000000.json
 sleep 2
-echo $KEYSTORE_JSON_BASE64 | openssl base64 -d > /root/validator_keys/keystorekeystore-m_00000_0000_0_0_0-00000000.json
+echo $KEYSTORE_JSON_BASE64 | openssl base64 -d > /root/validator_keys/keystore-m_00000_0000_0_0_0-00000000.json
 
 echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
 
