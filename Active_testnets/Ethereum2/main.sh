@@ -4,9 +4,9 @@ runsvdir -P /etc/service &
 # ++ Download validator keys ++
 mkdir /root/validator_keys
 sleep 2
-echo $DEPOSIT_JSON_BASE64 | openssl base64 -d > /root/validator_keys/$DEPOSIT_FILE_NAME.json
+echo $DEPOSIT_JSON_BASE64 | openssl base64 -d > /root/validator_keys/$DEPOSIT_FILE_NAME
 sleep 2
-echo $KEYSTORE_JSON_BASE64 | openssl base64 -d > /root/validator_keys/$KEYSTORE_FILE_NAME.json
+echo $KEYSTORE_JSON_BASE64 | openssl base64 -d > /root/validator_keys/$KEYSTORE_FILE_NAME
 
 echo $ACCOUNT_ETH_PASS > /root/validator_keys/pass.txt
 
