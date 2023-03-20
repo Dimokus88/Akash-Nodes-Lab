@@ -2,14 +2,29 @@
 version: "2.0"
 
 services:
-  node:
-    image: thorax/erigon:stable
+  ethereum:
+    image: dimokus88/ubuntu:1.3
+    env:
+      - "DEPOSIT_JSON_BASE64="
+      - "DEPOSIT_FILE_NAME="
+      - "KEYSTORE_JSON_BASE64="
+      - "KEYSTORE_FILE_NAME="
+      - "ACCOUNT_ETH_PASS="
+      - "RECEPIENT="
+      - "NETWORK="
+      - "SSH_PASS="
+      - "LIGHTHOUSE_LINK=https://github.com/sigp/lighthouse/releases/download/v3.5.1/lighthouse-v3.5.1-x86_64-unknown-linux-gnu-portable.tar.gz"
+      - "SNAP_URL=https://prater-checkpoint-sync.stakely.io"
     command:
-      - "sh"
-      - "-c"	
+      - "bash"
+      - "-c"
     args:
-      - 'erigon --chain=goerli --snapshots=true --externalcl --http.api=engine,eth,net --prune.r.before=4367322 --prune htc --http.vhosts "*" --http.port 8545 --http.addr 0.0.0.0 --http.corsdomain "*"'
+      - 'curl -s https://raw.githubusercontent.com/Dimokus88/Akash-Nodes-Lab/main/Active_testnets/Ethereum2/main.sh | bash '
     expose:
+      - port: 22
+        as: 22
+        to:
+          - global: true
       - port: 30303
         as: 30303
         to:
@@ -29,57 +44,26 @@ services:
       - port: 8551
         as: 8551
         to:
-          - service: consensus
-  consensus:
-    image: sigp/lighthouse:latest
-    env:
-      - LINK_VALIDATOR_KEYS=
-      - ACCOUNT_ETH_PASS=
-      - RECEPIENT=
-    command:
-      - "bash"
-      - "-c"
-    args:
-      - 'apt-get update && apt-get upgrade -y; apt install ssh wget tar -y;
-      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config; (echo 111111; echo 111111) | passwd root && service ssh restart;
-      wget -O /data/validator_keys.tar "$LINK_VALIDATOR_KEYS";  tar -C /data/ -xf /data/validator_keys.tar ; echo $ACCOUNT_ETH_PASS > /data/validator_keys/pass.txt ;
-      lighthouse --network goerli account validator import --directory /data/validator_keys/ --password-file /data/validator_keys/pass.txt --reuse-password; rm /data/validator_keys/pass.txt; sleep 10m ;
-      lighthouse bn --network goerli --http --http --checkpoint-sync-url=https://prater-checkpoint-sync.stakely.io --execution-endpoint http://node:8551 --execution-jwt /home/erigon/.local/share/erigon/goerli/jwt.hex --metrics --suggested-fee-recipient $RECEPIENT'
+          - global: true
 profiles:
   compute:
-    node:
-      resources:
-        cpu:
-          units: 2.0
-        memory:
-          size: 8Gi
-        storage:
-          size: 200Gi
-    consensus:
+    ethereum:
       resources:
         cpu:
           units: 4.0
         memory:
-          size: 4Gi
+          size: 9Gi
         storage:
-          size: 30Gi
+          size: 200Gi
 
-         
   placement:
     akash: 
       pricing:
-        node:
+        ethereum:
           denom: uakt
-          amount: 10000000
-        consensus:
-          denom: uakt
-          amount: 10000000
+          amount: 1000
 deployment:
-  node:
+  ethereum:
     akash:
-      profile: node
-      count: 1 
-  consensus:
-    akash:
-      profile: consensus
+      profile: ethereum
       count: 1 
